@@ -82,7 +82,7 @@ const ProductList = () => {
                     </div>
                     <div className="mt-6">
                       <RatingStar rating={product.rating} />
-                      <h4 className="font-medium text-[#1B1B1B] text-sm my-[8px] leading-5">{product.title}</h4>
+                      <h4 className="font-normal text-[#1B1B1B] text-sm my-[8px] leading-5">{product.title}</h4>
                       <p className="text-[#6A1B9A] font-semibold text-sm"><span className="line-through text-[#717171] text-sm font-normal mr-1">{product.oldprice}</span>${product.price}</p>
                     </div>
                     <div className="flex flex-col sm:hidden">

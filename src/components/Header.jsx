@@ -22,11 +22,15 @@ import { FaTwitter } from "react-icons/fa";
 const Header = () => {
   const navigate = useNavigate();
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 
   const toggleProfile = () => {
     setIsProfileOpen(!isProfileOpen);
   };
+
+  const toggleProfileMenu = () => {
+    setIsProfileMenuOpen(!isProfileMenuOpen);
+  }
 
   const navigateToFavPage = () => {
     navigate("/favs");
@@ -89,6 +93,7 @@ const Header = () => {
 
           <div 
             className="md:flex items-center gap-1 cursor-pointer hidden"
+            onClick={toggleProfileMenu}
           >
             <div className="w-[40px] h-[40px] bg-[#F5F7FA] rounded-full flex items-center justify-center">
               <img src={userIcon} alt="user icon" />
@@ -123,6 +128,15 @@ const Header = () => {
               <img src={whelp} alt="info icon" />
               <p className="text-[#1B1818] py-4 text-xs font-normal">Need Help</p>
             </div>
+            <div className="flex items-center gap-3 w-full cursor-pointer">
+              <img src={settings} alt="info icon" />
+              <p className="text-[#1B1818] py-4 text-xs font-normal">Account Settings</p>
+            </div>
+          </div>
+        )}
+
+        {isProfileMenuOpen && (
+          <div className="absolute mt-0 bg-white rounded-custom-3 py-3 px-5 z-50 right-0 w-[200px] shadow-lg">
             <div className="flex items-center gap-3 w-full cursor-pointer">
               <img src={settings} alt="info icon" />
               <p className="text-[#1B1818] py-4 text-xs font-normal">Account Settings</p>
