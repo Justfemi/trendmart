@@ -47,7 +47,7 @@ const ProductList = () => {
               </select>
             </div>
 
-            <div className="border cursor-pointer  p-2 rounded-custom-10 sm:hidden block">
+            <div className="border cursor-pointer  p-2.5 rounded-custom-10 sm:hidden block">
               <img src={menuIcon} alt="menu-toggle icon" />
             </div>
           </div>
@@ -79,9 +79,9 @@ const ProductList = () => {
                       <p className="text-[#6A1B9A] font-semibold text-md"><span className="line-through text-[#717171] text-sm font-normal mr-1">{product.oldprice}</span>${product.price}</p>
                     </div>
                     <div className="flex flex-col sm:hidden">
-                      <button className="uppercase px-4 py-3 bg-[#6A1B9A] mt-3 rounded-custom-100 text-white text-bold">add to cart</button>
+                      <button className="uppercase px-6 py-2.5 bg-[#6A1B9A] mt-3 rounded-custom-50 text-white text-bold">add to cart</button>
 
-                      <button className="uppercase px-4 py-3 bg-white border-2 border-[#6A1B9A] mt-3 rounded-custom-100 text-[#6A1B9A] text-bold">save</button>
+                      <button className="uppercase px-6 py-2.5 bg-white border border-[#6A1B9A] mt-3 rounded-custom-50 text-[#6A1B9A] text-bold">save</button>
                     </div>
                   </div>
                 );

@@ -56,8 +56,8 @@ const Footer = () => {
           <p className="font-light font-sm mb-6">Sign up your email and be the first to know about our special offers and discount.</p>
           
           <div className="flex flex-col">
-            <input type="email" placeholder="Email Address" className="px-4 py-3 bg-white border border-[#E0E0E0] rounded-custom-100 outline-none" />
-            <button className="px-4 py-3 bg-[#6A1B9A] mt-3 rounded-custom-100 uppercase">Subscribe</button>
+            <input type="email" placeholder="Email Address" className="px-4 py-3 bg-white border border-[#E0E0E0] rounded-custom-50 outline-none" />
+            <button className="px-4 py-3 bg-[#6A1B9A] mt-3 rounded-custom-50 uppercase">Subscribe</button>
           </div>
         </div>
       </div>
