@@ -8,6 +8,7 @@ export default {
     extend: {
       fontSize: {
         sm: '14px',
+        'xs-custom': '10px',
       },
       fontFamily: {
         'general-sans': ['"General Sans"', 'sans-serif'],
@@ -20,7 +21,10 @@ export default {
       },
       screens: {
         'xs': '375px',
-      }
+      },
+      colors: {
+        'custom-purple': '#6A1B9A',
+      },
     },
   },
   variants: {},
