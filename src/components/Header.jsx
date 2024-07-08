@@ -5,7 +5,7 @@ import callIcon from "../assets/call.svg";
 import infoIcon from "../assets/info.svg";
 import locationIcon from "../assets/location.svg";
 import headsetIcon from "../assets/headset.svg";
-import flagng from "../assets/flagNg.svg";
+// import flagng from "../assets/flagNg.svg";
 import heartIcon from "../assets/heart.svg";
 import cartIcon from "../assets/cart.svg";
 import userIcon from "../assets/user.svg"
@@ -44,11 +44,11 @@ const Header = () => {
           <img src={logo} alt="trendmart logo" className="py-[20px]"/>
         </Link>
         <div className="flex items-center gap-3">
-          <div className="md:flex items-center gap-1 cursor-pointer hidden">
+          {/* <div className="md:flex items-center gap-1 cursor-pointer hidden">
             <img src={flagng} alt="nigeria flag" className="w-[24px] h-[24px]" />
             <p className="text-white text-sm font-normal">NGN</p>
             <IoIosArrowDown className="text-white"/>
-          </div>
+          </div> */}
 
           <div className="w-[40px] h-[40px] bg-[#F5F7FA] rounded-full md:flex items-center justify-center cursor-pointer hidden">
             <img src={heartIcon} alt="heart icon"/>
