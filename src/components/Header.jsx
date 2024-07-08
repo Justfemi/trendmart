@@ -14,7 +14,7 @@ import { IoIosArrowDown } from "react-icons/io";
 const Header = () => {
   return (
     <header className="font-general-sans">
-      <div className="bg-[#1B1818] shadow-inner w-full h-[42px] flex items-center justify-between px-[65px]">
+      <div className="bg-[#1B1818] shadow-inner w-full h-[42px] items-center justify-between px-[65px] hidden md:flex">
         <div className="text-[#181818]">Space</div>
         {/* middle div */}
         <div className="flex gap-5">
@@ -39,19 +39,19 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#6A1B9A] w-full px-[65px] flex items-center justify-between">
+      <div className="bg-[#6A1B9A] w-full sm:px-[65px] px-5 flex items-center justify-between">
         <Link to="/">
           <img src={logo} alt="trendmart logo" className="py-[20px]"/>
         </Link>
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-1 cursor-pointer">
+          <div className="md:flex items-center gap-1 cursor-pointer hidden">
             <img src={flagng} alt="nigeria flag" className="w-[24px] h-[24px]" />
             <p className="text-white text-sm font-normal">NGN</p>
             <IoIosArrowDown className="text-white"/>
           </div>
 
-          <div className="w-[40px] h-[40px] bg-[#F5F7FA] rounded-full flex items-center justify-center cursor-pointer">
-            <img src={heartIcon} alt="heart icon" />
+          <div className="w-[40px] h-[40px] bg-[#F5F7FA] rounded-full md:flex items-center justify-center cursor-pointer hidden">
+            <img src={heartIcon} alt="heart icon"/>
           </div>
 
           <div className="w-[40px] h-[40px] bg-[#F5F7FA] rounded-full flex items-center justify-center cursor-pointer">
@@ -62,7 +62,7 @@ const Header = () => {
             <div className="w-[40px] h-[40px] bg-[#F5F7FA] rounded-full flex items-center justify-center">
               <img src={userIcon} alt="user icon" />
             </div>
-            <p className="text-white text-sm font-normal">Chioma</p>
+            <p className="text-white text-sm font-normal hidden md:block">Chioma</p>
             <IoIosArrowDown className="text-white"/>
           </div>
         </div>
