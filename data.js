@@ -1,6 +1,6 @@
 import product1 from "./src/assets/product1.svg";
 import product2 from "./src/assets/product2.svg";
-import product3 from "./src/assets/product3.svg";
+import product3 from "./src/assets/product3.png";
 import product4 from "./src/assets/product4.png";
 import product5 from "./src/assets/product5.svg";
 import product6 from "./src/assets/product6.svg";

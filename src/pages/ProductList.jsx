@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import RatingStar from "../components/RatingStars";
+// import Dropdown from '../components/Dropdown';
 import hero1 from "../assets/firsthero.svg"
 import { FiSearch } from "react-icons/fi";
 import { IoCartOutline } from "react-icons/io5";
@@ -29,14 +30,12 @@ const ProductList = () => {
       </section>
       <section className="mt-[30px] w-[90%] mx-auto flex gap-3 items-start justify-between pb-4 font-general-sans">
         <div 
-          className={`fixed top-0 left-0 z-50 h-full transition-width duration-300 ${
-          isNavOpen ? 'w-[100%]' : 'w-0'
-          } lg:static w-[23%]`}
+          className="top-0 left-0 sm:w-[25%] hidden sm:block"
         >
           <Sidebar />
         </div>
 
-        <div className="sm:w-[75%] w-[100%] z-1 font-general-sans">
+        <div className="sm:w-[72%] w-[100%] z-1 font-general-sans">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center border border-[#E0E0E0] py-3 px-6 bg-white shadow-sm rounded-custom-10 sm:w-[50%] w-[80%]">
               <FiSearch className="text-[#717171] mr-2"/>
@@ -67,7 +66,7 @@ const ProductList = () => {
             {
               Products && Products.map(product => {
                 return (
-                  <div key={product.id} className="group border border-[#E0E0E0] rounded-custom-3 p-4">
+                  <div key={product.id} className="group border border-[#E0E0E0] rounded-custom-10 p-4 shadow-lg">
                     <div className="relative w-full">
                       <img src={product.image} alt={product.title} className="w-full"/>
                       <div className="absolute sm:flex items-center justify-center gap-2 w-full h-full left-0 top-0 bg-black bg-opacity-30 opacity-0 transition-opacity group-hover:opacity-100 hidden">
@@ -79,9 +78,6 @@ const ProductList = () => {
                           <IoCartOutline className="text-lg"/>
                         </div>
       
-                        {/* <div className="w-[40px] h-[40px] bg-[#FFF] text-[#1B1818] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#6A1B9A] hover:text-white">
-                          <IoEyeOutline />
-                        </div> */}
                       </div>
                     </div>
                     <div className="mt-6">
@@ -109,9 +105,9 @@ const ProductList = () => {
               <img src={left} alt="left arrow" className="border border-[#E0E0E0] p-3 rounded-custom-8 cursor-pointer hover:border-[#6A1B9A]" />
               <p className="bg-[#6A1B9A] text-white px-4 py-2 rounded-custom-8 text-sm font-light cursor-pointer"> 1 </p>
               <p className="cursor-pointer border border-white hidden sm:block hover:border-[#6A1B9A] rounded-custom-8 px-3 py-1"> 2 </p>
-              <p className="cursor-pointer border border-white hidden sm:block hover:border-[#6A1B9A] rounded-custom-8 px-3 py-1"> 3 </p>
+              <p className="cursor-pointer border border-white hidden lg:block hover:border-[#6A1B9A] rounded-custom-8 px-3 py-1"> 3 </p>
               <p> ... </p>
-              <p className="cursor-pointer border border-white hidden sm:block hover:border-[#6A1B9A] rounded-custom-8 px-3 py-1"> 28 </p>
+              <p className="cursor-pointer border border-white hidden lg:block hover:border-[#6A1B9A] rounded-custom-8 px-3 py-1"> 28 </p>
               <p className="cursor-pointer border border-white hidden sm:block hover:border-[#6A1B9A] rounded-custom-8 px-3 py-1"> 29 </p>
               <p className="cursor-pointer border border-white hidden sm:block hover:border-[#6A1B9A] rounded-custom-8 px-3 py-1"> 30 </p>
               <img src={right} alt="right arrow" className="border border-[#E0E0E0] p-3 rounded-custom-8 cursor-pointer hover:border-[#6A1B9A]" />

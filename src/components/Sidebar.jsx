@@ -75,7 +75,7 @@ const Sidebar = () => {
 
       <div className="border-b border-[#E4E7E9]">
        <h3 className="uppercase font-normal text-[#1B1818] mb-4 mt-6">size</h3>
-        <div className="flex items-center gap-20">
+        <div className="flex items-center gap-16">
           <div>
             <label className="flex items-center mb-3">
               <input
@@ -145,16 +145,16 @@ const Sidebar = () => {
       <div className="border-b border-[#E4E7E9]">
         <h3 className="uppercase font-normal text-[#1B1818] mb-4 mt-6">price range</h3>
         <div className="flex items-center">
-          <span className="mr-2 text-gray-700 text-xs">Min</span>
+          <span className="mr-2 text-[#717171] text-xs">$20</span>
           <input
             type="range"
             min="0"
             max="150"
             value={price}
             onChange={handleSliderChange}
-            className="w-[80%] h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer range-input"
+            className="w-[80%] h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer range-input"
           />
-          <span className="ml-2 text-gray-700 text-xs">Max</span>
+          <span className="ml-2 text-[#717171] text-xs">$1000</span>
         </div>
         <div className="mt-4">
           <label className="flex items-center mb-3">
@@ -195,7 +195,7 @@ const Sidebar = () => {
 
       <div className="border-b border-[#E4E7E9]">
        <h3 className="uppercase font-normal text-[#1B1818] mb-4 mt-6">colour</h3>
-        <div className="flex items-center gap-20">
+        <div className="flex items-center gap-14">
           <div>
             <label className="flex items-center mb-3">
               <input
@@ -284,7 +284,7 @@ const Sidebar = () => {
 
       <div className="">
        <h3 className="uppercase font-normal text-[#1B1818] mb-4 mt-6">popular brands</h3>
-        <div className="flex items-center gap-20">
+        <div className="flex items-center xl:gap-14 gap-6">
           <div>
             <label className="flex items-center mb-3">
               <input
