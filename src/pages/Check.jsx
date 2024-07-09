@@ -42,22 +42,137 @@ const Check = () => {
         <div className='sm:hidden block'>
           <p className="text-[#717171] uppercase font-normal text-base my-4 mx-6">Order Details</p>
 
-          <div className="flex felx-col">
-            <div className="flex items-center justify-between p-1">
-              <div className="w-[80] h-[80] border border-[#e0e0e0] rounded-custom-6">
-                <img src={product1} alt="first product" className="w-full h-full"/>
+          <div className="flex flex-col">
+            <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
+              <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
+                <img src={product1} alt="first product" className="w-full h-full object-cover"/>
               </div>
 
-              <div classNAME="FLEX flex-1">
-                <h3 className="text-[#1b1818] font-medium text-sm">Dior and Stone Island T-Shirt, Oversized Fit</h3>
+              <div className="flex flex-col">
+                <h3 className="text-[#1b1818] font-medium text-sm mb-3">Dior and Stone Island T-Shirt, Oversized Fit</h3>
 
-                <div>
+                <div className="flex items-center gap-32">
                   <h3 className="text-[#1b1818] font-medium text-sm">$250</h3>
                   <p className="text-[#717171] font-normal text-sm">3</p>
                 </div>
               </div>
             </div>
-          </div>          
+
+            <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
+              <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
+                <img src={product1} alt="first product" className="w-full h-full object-cover"/>
+              </div>
+
+              <div className="flex flex-col">
+                <h3 className="text-[#1b1818] font-medium text-sm mb-3">Dior and Stone Island T-Shirt, Oversized Fit</h3>
+
+                <div className="flex items-center gap-32">
+                  <h3 className="text-[#1b1818] font-medium text-sm">$250</h3>
+                  <p className="text-[#717171] font-normal text-sm">3</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
+              <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
+                <img src={product1} alt="first product" className="w-full h-full object-cover"/>
+              </div>
+
+              <div className="flex flex-col">
+                <h3 className="text-[#1b1818] font-medium text-sm mb-3">Dior and Stone Island T-Shirt, Oversized Fit</h3>
+
+                <div className="flex items-center gap-32">
+                  <h3 className="text-[#1b1818] font-medium text-sm">$250</h3>
+                  <p className="text-[#717171] font-normal text-sm">3</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
+              <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
+                <img src={product1} alt="first product" className="w-full h-full object-cover"/>
+              </div>
+
+              <div className="flex flex-col">
+                <h3 className="text-[#1b1818] font-medium text-sm mb-3">Dior and Stone Island T-Shirt, Oversized Fit</h3>
+
+                <div className="flex items-center gap-32">
+                  <h3 className="text-[#1b1818] font-medium text-sm">$250</h3>
+                  <p className="text-[#717171] font-normal text-sm">3</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
+              <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
+                <img src={product1} alt="first product" className="w-full h-full object-cover"/>
+              </div>
+
+              <div className="flex flex-col">
+                <h3 className="text-[#1b1818] font-medium text-sm mb-3">Dior and Stone Island T-Shirt, Oversized Fit</h3>
+
+                <div className="flex items-center gap-32">
+                  <h3 className="text-[#1b1818] font-medium text-sm">$250</h3>
+                  <p className="text-[#717171] font-normal text-sm">3</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* total box */}
+          <div className="border border-[#6a1b9a] bg-[#FBF9FC] mx-auto w-[95%] py-5 px-2 rounded-custom-4 my-6">
+            <div className='flex items-center justify-between p-2'>
+              <p className="text-[#717171] font-normal text-sm">Sub-total</p>
+              <h3 className="text-[#1b1818] font-medium text-sm">$3500</h3>
+            </div>
+
+            <div className='flex items-center justify-between p-2'>
+              <p className="text-[#717171] font-normal text-sm">Shipping</p>
+              <h3 className="text-[#1b1818] font-medium text-sm">Free</h3>
+            </div>
+
+            <div className='flex items-center justify-between p-2'>
+              <p className="text-[#717171] font-normal text-sm">Discount</p>
+              <h3 className="text-[#1b1818] font-medium text-sm">$34</h3>
+            </div>
+
+            <div className='flex items-center justify-between p-2'>
+              <p className="text-[#717171] font-normal text-sm">Tax</p>
+              <h3 className="text-[#1b1818] font-medium text-sm">$61.99</h3>
+            </div>
+
+            <div className='flex items-center justify-between p-2'>
+              <p>Total</p>
+              <h3 className="text-[#6a1b9a] font-medium text-base">$2585.99 USD</h3>
+            </div>
+          </div>
+        </div>
+
+        {/* Last div */}
+        <div className='border border-[#e0e0e0] rounded-custom-4'>
+          <div className="basis-1/2 text-[#717171] text-sm font-normal p-2">
+            <h3 className="text-[#1b1818] text-base font-medium">Shipping Address</h3>
+            <p>Olakunle Oluremi</p>
+            <p>No 4 madiana close, off Dar-Es-Salam street, wuse 2 Abuja, Nigeria</p>
+            <p className="text-[#1b1818]">Email Address: <span className="text-[#717171]"> olakunle.o@gmail.com </span></p>
+            <p className="text-[#1b1818]">Phone Number: <span className="text-[#717171]"> +234 815 3777 444 </span></p>
+          </div>
+
+          <div className="basis-1/2 border-t border-[#e0e0e0] p-2">
+            <h3 className="text-[#1b1818] text-base font-medium">Order Notes</h3>
+            <p className="text-[#717171] text-sm font-normal">
+              Please ensure that the blue dress is in size M and includes the matching belt as shown in the product image. 
+              I would appreciate if the items could be gift-wrapped with a birthday card included. If possible, deliver before 
+              July 10th as it&apos;s a gift for my friend&apos;s birthday. Thank you!
+            </p>
+          </div>
+        </div>
+
+        <div className="flex py-6 mt-6 px-4 justify-center">
+          <button className="uppercase px-20 py-2.5 bg-[#6A1B9A] hover:bg-transparent hover:text-[#6a1b9a] 
+              mt-3 rounded-custom-50 text-white text-bold border border-[#6a1b9a] w-full"
+              onClick={handleOpenModal}
+          >Place order</button>
         </div>
 
         <div className="w-[70%] border border-[#6a1b9a] rounded-custom-3 p-6 items-center justify-between bg-[#FBF9FC] mx-auto mt-6 mb-3 hidden sm:flex">

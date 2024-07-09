@@ -168,7 +168,7 @@ const Checkout = () => {
                   </div>
                 </div>
 
-                <div className="flex py-6 mt-6 justify-end">
+                <div className="flex py-6 mt-6 sm:justify-end justify-center">
                   <button className="uppercase px-20 py-2.5 bg-[#6A1B9A] hover:bg-transparent hover:text-[#6a1b9a] 
                       mt-3 rounded-custom-50 text-white text-bold border border-[#6a1b9a]"
                       onClick={handleNextPage}
@@ -249,7 +249,7 @@ const Checkout = () => {
                   <textarea placeholder="e.g. special notes for delivery, additional phone number" className="border border-[#e0e0e0] rounded-custom-10 p-2.5 w-full resize-none input-outline-purple"/>
                 </div>
 
-                <div className="flex py-6 mt-6 justify-end">
+                <div className="flex py-6 mt-6 sm:justify-end justify-center">
                   <button className="uppercase px-20 py-2.5 bg-[#6A1B9A] hover:bg-transparent hover:text-[#6a1b9a] 
                       mt-3 rounded-custom-50 text-white text-bold border border-[#6a1b9a]"
                       onClick={handleSubmit}
