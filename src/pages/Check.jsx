@@ -166,14 +166,14 @@ const Check = () => {
               </p>
             </div>
           </div>
+          <div className="flex py-6 mt-6 px-4 justify-center">
+            <button className="uppercase px-20 py-2.5 bg-[#6A1B9A] hover:bg-transparent hover:text-[#6a1b9a] 
+                mt-3 rounded-custom-50 text-white text-bold border border-[#6a1b9a] w-full"
+                onClick={handleOpenModal}
+            >Place order</button>
+          </div>
         </div>
 
-        <div className="flex py-6 mt-6 px-4 justify-center">
-          <button className="uppercase px-20 py-2.5 bg-[#6A1B9A] hover:bg-transparent hover:text-[#6a1b9a] 
-              mt-3 rounded-custom-50 text-white text-bold border border-[#6a1b9a] w-full"
-              onClick={handleOpenModal}
-          >Place order</button>
-        </div>
 
         <div className="w-[70%] border border-[#6a1b9a] rounded-custom-3 p-6 items-center justify-between bg-[#FBF9FC] mx-auto mt-6 mb-3 hidden sm:flex">
           <p>Total</p>
