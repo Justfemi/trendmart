@@ -3,6 +3,7 @@ import ProductList from "./pages/ProductList";
 import Cart from "./pages/Cart";
 import Favorite from "./pages/Favorite";
 import Checkout from "./pages/Checkout";
+import Check from "./pages/Check";
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/favs" element={<Favorite />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/check" element={<Check />} />
       </Routes>
     </Router>
   )

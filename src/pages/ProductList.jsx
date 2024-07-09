@@ -37,7 +37,7 @@ const ProductList = () => {
 
         <div className="sm:w-[72%] w-[100%] z-1 font-general-sans">
           <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center border border-[#E0E0E0] py-3 px-6 bg-white shadow-sm rounded-custom-10 sm:w-[50%] w-[80%]">
+            <div className="flex items-center border border-[#E0E0E0] py-3 px-6 bg-white shadow-sm rounded-custom-10 sm:w-[50%] w-[80%] ">
               <FiSearch className="text-[#717171] mr-2"/>
               <input 
                 type="search"
@@ -66,7 +66,7 @@ const ProductList = () => {
             {
               Products && Products.map(product => {
                 return (
-                  <div key={product.id} className="group border border-[#E0E0E0] rounded-custom-10 p-4 shadow-lg">
+                  <div key={product.id} className="group border border-[#E0E0E0] rounded-custom-10 p-4  hover:shadow-lg">
                     <div className="relative w-full">
                       <img src={product.image} alt={product.title} className="w-full"/>
                       <div className="absolute sm:flex items-center justify-center gap-2 w-full h-full left-0 top-0 bg-black bg-opacity-30 opacity-0 transition-opacity group-hover:opacity-100 hidden">
