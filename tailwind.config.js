@@ -19,6 +19,7 @@ export default {
         'custom-6': '6px',
         'custom-8': '8px',
         'custom-10': '10px',
+        'custom-30': '30px',
         'custom-50': '50px',
       },
       screens: {
