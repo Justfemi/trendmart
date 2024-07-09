@@ -146,25 +146,25 @@ const Check = () => {
               <h3 className="text-[#6a1b9a] font-medium text-base">$2585.99 USD</h3>
             </div>
           </div>
-        </div>
 
-        {/* Last div */}
-        <div className='border border-[#e0e0e0] rounded-custom-4'>
-          <div className="basis-1/2 text-[#717171] text-sm font-normal p-2">
-            <h3 className="text-[#1b1818] text-base font-medium">Shipping Address</h3>
-            <p>Olakunle Oluremi</p>
-            <p>No 4 madiana close, off Dar-Es-Salam street, wuse 2 Abuja, Nigeria</p>
-            <p className="text-[#1b1818]">Email Address: <span className="text-[#717171]"> olakunle.o@gmail.com </span></p>
-            <p className="text-[#1b1818]">Phone Number: <span className="text-[#717171]"> +234 815 3777 444 </span></p>
-          </div>
+          {/* Last div */}
+          <div className='border border-[#e0e0e0] rounded-custom-4'>
+            <div className="basis-1/2 text-[#717171] text-sm font-normal p-2">
+              <h3 className="text-[#1b1818] text-base font-medium">Shipping Address</h3>
+              <p>Olakunle Oluremi</p>
+              <p>No 4 madiana close, off Dar-Es-Salam street, wuse 2 Abuja, Nigeria</p>
+              <p className="text-[#1b1818]">Email Address: <span className="text-[#717171]"> olakunle.o@gmail.com </span></p>
+              <p className="text-[#1b1818]">Phone Number: <span className="text-[#717171]"> +234 815 3777 444 </span></p>
+            </div>
 
-          <div className="basis-1/2 border-t border-[#e0e0e0] p-2">
-            <h3 className="text-[#1b1818] text-base font-medium">Order Notes</h3>
-            <p className="text-[#717171] text-sm font-normal">
-              Please ensure that the blue dress is in size M and includes the matching belt as shown in the product image. 
-              I would appreciate if the items could be gift-wrapped with a birthday card included. If possible, deliver before 
-              July 10th as it&apos;s a gift for my friend&apos;s birthday. Thank you!
-            </p>
+            <div className="basis-1/2 border-t border-[#e0e0e0] p-2">
+              <h3 className="text-[#1b1818] text-base font-medium">Order Notes</h3>
+              <p className="text-[#717171] text-sm font-normal">
+                Please ensure that the blue dress is in size M and includes the matching belt as shown in the product image. 
+                I would appreciate if the items could be gift-wrapped with a birthday card included. If possible, deliver before 
+                July 10th as it&apos;s a gift for my friend&apos;s birthday. Thank you!
+              </p>
+            </div>
           </div>
         </div>
 
