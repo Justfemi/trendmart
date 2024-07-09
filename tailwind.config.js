@@ -15,6 +15,7 @@ export default {
       },
       borderRadius: {
         'custom-3': '3px',
+        'custom-4': '4px',
         'custom-6': '6px',
         'custom-8': '8px',
         'custom-10': '10px',
