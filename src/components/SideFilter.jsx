@@ -1,8 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
 
 const SideFilter = ({ isOpen, onClose }) => {
   const [price, setPrice] = useState(0);
   const [selectedRange, setSelectedRange] = useState('');
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+  }, [isOpen]);
 
   const handleSliderChange = (event) => {
     const value = parseInt(event.target.value, 10);
@@ -42,13 +50,73 @@ const SideFilter = ({ isOpen, onClose }) => {
     <div className={`fixed inset-0 flex items-end justify-center transition-transform transform ${isOpen ? 'translate-y-0' : 'translate-y-full'} bg-black bg-opacity-50 z-50`} >
       <div className="w-full h-[95%] bg-white p-8 rounded-t-lg shadow-lg">
         <div className="border-b border-[#E4E7E9]">
+          <h3 className="uppercase font-normal text-[#1B1818] mb-4 mt-6">filter</h3>
           <button
             onClick={onClose}
             className="absolute top-7 right-2 text-black hover:text-gray-700 text-5xl"
           >
             &times;
           </button>
-          <h3 className="uppercase font-normal text-[#1B1818] mb-4">category</h3>
+          <h3 className="uppercase font-normal text-[#1B1818] mb-4 mt-6">sort by</h3>
+          <div className="flex items-center gap-16">
+            <div>
+              <label className="flex items-center mb-3">
+                <input
+                  type="radio"
+                  name="sort"
+                  value="most"
+                  className="form-radio text-[#6A1B9A]"
+                />
+                <span className="ml-2 text-[#717171] font-light text-sm">Most Popular</span>
+              </label>
+
+              <label className="flex items-center mb-3">
+                <input
+                  type="radio"
+                  name="sort"
+                  value="newest"
+                  className="form-radio text-[#6A1B9A]"
+                />
+                <span className="ml-2 text-[#717171] font-light text-sm">Newest Arrival</span>
+              </label>
+
+              <label className="flex items-center mb-6">
+                <input
+                  type="radio"
+                  name="sort"
+                  value="customer"
+                  className="form-radio text-[#6A1B9A]"
+                />
+                <span className="ml-2 text-[#717171] font-light text-sm">Customer Rating</span>
+              </label>
+            </div>
+
+            <div>
+              <label className="flex items-center mb-3">
+                <input
+                  type="radio"
+                  name="sort"
+                  value="hightolow"
+                  className="form-radio text-[#6A1B9A]"
+                />
+                <span className="ml-2 text-[#717171] font-light text-sm">Price : High to Low</span>
+              </label>
+
+              <label className="flex items-center mb-6">
+                <input
+                  type="radio"
+                  name="sort"
+                  value="lowtohigh"
+                  className="form-radio text-[#6A1B9A]"
+                />
+                <span className="ml-2 text-[#717171] font-light text-sm">Price : Low to High</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-b border-[#E4E7E9]">
+          <h3 className="uppercase font-normal text-[#1B1818] mb-4 mt-6">category</h3>
           <label className="flex items-center mb-3">
             <input
               type="radio"
@@ -81,7 +149,7 @@ const SideFilter = ({ isOpen, onClose }) => {
         </div>
 
         <div className="border-b border-[#E4E7E9]">
-        <h3 className="uppercase font-normal text-[#1B1818] mb-4 mt-6">size</h3>
+          <h3 className="uppercase font-normal text-[#1B1818] mb-4 mt-6">size</h3>
           <div className="flex items-center gap-16">
             <div>
               <label className="flex items-center mb-3">
