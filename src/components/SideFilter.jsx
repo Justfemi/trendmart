@@ -58,7 +58,7 @@ const SideFilter = ({ isOpen, onClose }) => {
             &times;
           </button>
           <h3 className="uppercase font-normal text-[#1B1818] mb-4 mt-6">sort by</h3>
-          <div className="flex items-start gap-16">
+          <div className="flex items-start gap-6">
             <div>
               <label className="flex items-center mb-3">
                 <input
