@@ -325,7 +325,7 @@ const Check = () => {
 
         <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
           <div className="relative p-2">
-            <img src={success} alt="success animation" loading='lazy' />
+            <img src={success} alt="success animation" />
             <img src={checkmark} alt="" className="inset-x-0 mx-auto w-1/4 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl absolute top-4"/>
             <div className="mt-[-80px] text-center">
               <h3 className="text-[#1b18181] font-medium text-base">Order Placed Succesfully</h3>
