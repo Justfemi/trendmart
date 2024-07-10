@@ -17,13 +17,13 @@ import Loader from "../components/Loader";
 
 const ProductList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fakeDataFetch = () => {
       setTimeout(() => {
         setIsLoading(false);
-      }, 5000);
+      }, 1000);
     }
 
     fakeDataFetch();
@@ -38,11 +38,11 @@ const ProductList = () => {
   };
 
   return (
-    isLoading ? ( <Loader /> ) : (
+    // isLoading ? ( <Loader /> ) : (
       <>
         <Header />
         <section className="max:h-[330px] w-[90%] mx-auto my-[15px]">
-          <img src={hero1} alt="first hero img" className="h-full w-full object-cover" />
+          <img src={hero1} alt="first hero img" className="h-full w-full object-cover" loading="lazy"/>
         </section>
         <section className="mt-[30px] w-[90%] mx-auto flex gap-3 items-start justify-between pb-4 font-general-sans min-h-screen">
           <div 
@@ -78,7 +78,7 @@ const ProductList = () => {
                   return (
                     <div key={product.id} className="group border border-[#E0E0E0] rounded-custom-10 p-4  hover:shadow-lg">
                       <div className="relative w-full">
-                        <img src={product.image} alt={product.title} className="w-full"/>
+                        <img src={product.image} alt={product.title} className="w-full" loading="lazy"/>
                         <div className="absolute sm:flex items-center justify-center gap-2 w-full h-full left-0 top-0 bg-black bg-opacity-30 opacity-0 transition-opacity group-hover:opacity-100 hidden">
                           <div className="w-[40px] h-[40px] bg-[#FFF] text-[#1B1818] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#6A1B9A] hover:text-white">
                             <MdOutlineFavoriteBorder />
@@ -129,7 +129,7 @@ const ProductList = () => {
         </section>
         <Footer />
       </>
-    )
+    // )
   )
 }
 

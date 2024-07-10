@@ -53,7 +53,7 @@ const SideFilter = ({ isOpen, onClose }) => {
           <h3 className="uppercase font-normal text-[#1B1818] mb-4 mt-6">filter</h3>
           <button
             onClick={onClose}
-            className="absolute top-7 right-2 text-black hover:text-gray-700 text-5xl"
+            className="absolute top-9 right-2 text-black hover:text-gray-700 text-5xl"
           >
             &times;
           </button>

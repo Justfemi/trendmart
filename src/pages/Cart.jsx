@@ -43,16 +43,16 @@ const Cart = () => {
           </div>
 
           <div className="flex flex-col ">
-            <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
+            <div className="flex items-center gap-2 py-2 px-1 border-[#e0e0e0] border-t">
               <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
-                <img src={product1} alt="first product" className="w-full h-full object-cover"/>
+                <img src={product1} loading='lazy' alt="first product" className="w-full h-full object-cover"/>
               </div>
 
               <div className="flex flex-col">
                 <h3 className="text-[#1b1818] font-medium text-sm mb-3">Dior and Stone Island T-Shirt, Oversized Fit</h3>
 
-                <div className="flex items-center gap-32">
+                <div className="flex items-center justify-between">
                   <h3 className="text-[#1b1818] font-medium text-sm">$250</h3>
                   <div className="flex items-center gap-5">
                     <div className=" border border-[#6a1b9a] rounded-full flex w-6 h-6 items-center text-[#6a1b9a] justify-center cursor-pointer hover:bg-[#6a1b9a] hover:text-white"
@@ -71,16 +71,16 @@ const Cart = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
+            <div className="flex items-center gap-2 py-2 px-1 border-[#e0e0e0] border-t">
               <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
-                <img src={product1} alt="first product" className="w-full h-full object-cover"/>
+                <img src={product1} loading='lazy' alt="first product" className="w-full h-full object-cover"/>
               </div>
 
               <div className="flex flex-col">
                 <h3 className="text-[#1b1818] font-medium text-sm mb-3">Dior and Stone Island T-Shirt, Oversized Fit</h3>
 
-                <div className="flex items-center gap-32">
+                <div className="flex items-center justify-between">
                   <h3 className="text-[#1b1818] font-medium text-sm">$250</h3>
                   <div className="flex items-center gap-5">
                     <div className=" border border-[#6a1b9a] rounded-full flex w-6 h-6 items-center text-[#6a1b9a] justify-center cursor-pointer hover:bg-[#6a1b9a] hover:text-white"
@@ -99,16 +99,16 @@ const Cart = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
+            <div className="flex items-center gap-2 py-2 px-1 border-[#e0e0e0] border-t">
               <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
-                <img src={product1} alt="first product" className="w-full h-full object-cover"/>
+                <img src={product1} loading='lazy' alt="first product" className="w-full h-full object-cover"/>
               </div>
 
               <div className="flex flex-col">
                 <h3 className="text-[#1b1818] font-medium text-sm mb-3">Dior and Stone Island T-Shirt, Oversized Fit</h3>
 
-                <div className="flex items-center gap-32">
+                <div className="flex items-center justify-between">
                   <h3 className="text-[#1b1818] font-medium text-sm">$250</h3>
                   <div className="flex items-center gap-5">
                     <div className=" border border-[#6a1b9a] rounded-full flex w-6 h-6 items-center text-[#6a1b9a] justify-center cursor-pointer hover:bg-[#6a1b9a] hover:text-white"
@@ -127,16 +127,16 @@ const Cart = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
+            <div className="flex items-center gap-2 py-2 px-1 border-[#e0e0e0] border-t">
               <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
-                <img src={product1} alt="first product" className="w-full h-full object-cover"/>
+                <img src={product1} loading='lazy' alt="first product" className="w-full h-full object-cover"/>
               </div>
 
               <div className="flex flex-col">
                 <h3 className="text-[#1b1818] font-medium text-sm mb-3">Dior and Stone Island T-Shirt, Oversized Fit</h3>
 
-                <div className="flex items-center gap-32">
+                <div className="flex items-center justify-between">
                   <h3 className="text-[#1b1818] font-medium text-sm">$250</h3>
                   <div className="flex items-center gap-5">
                     <div className=" border border-[#6a1b9a] rounded-full flex w-6 h-6 items-center text-[#6a1b9a] justify-center cursor-pointer hover:bg-[#6a1b9a] hover:text-white"
@@ -155,16 +155,16 @@ const Cart = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
+            <div className="flex items-center gap-2 py-2 px-1 border-[#e0e0e0] border-t">
               <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
-                <img src={product1} alt="first product" className="w-full h-full object-cover"/>
+                <img src={product1} loading='lazy' alt="first product" className="w-full h-full object-cover"/>
               </div>
 
               <div className="flex flex-col">
                 <h3 className="text-[#1b1818] font-medium text-sm mb-3">Dior and Stone Island T-Shirt, Oversized Fit</h3>
 
-                <div className="flex items-center gap-32">
+                <div className="flex items-center justify-between">
                   <h3 className="text-[#1b1818] font-medium text-sm">$250</h3>
                   <div className="flex items-center gap-5">
                     <div className=" border border-[#6a1b9a] rounded-full flex w-6 h-6 items-center text-[#6a1b9a] justify-center cursor-pointer hover:bg-[#6a1b9a] hover:text-white"
@@ -205,7 +205,7 @@ const Cart = () => {
             <div className="flex items-center basis-[40%] gap-2">
               <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
-                <img src={product1} alt="product-1" className="w-full h-full object-cover" />
+                <img src={product1} loading='lazy' alt="product-1" className="w-full h-full object-cover" />
               </div>
               <p className="text-[#1B1818] font-medium text-sm">Dior and Stone Island T-Shirt, Oversized Fit</p>
             </div>
@@ -235,7 +235,7 @@ const Cart = () => {
             <div className="flex items-center basis-[40%] gap-2">
               <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
-                <img src={product1} alt="product-1" className="w-full h-full object-cover" />
+                <img src={product1} loading='lazy' alt="product-1" className="w-full h-full object-cover" />
               </div>
               <p className="text-[#1B1818] font-medium text-sm">Dior and Stone Island T-Shirt, Oversized Fit</p>
             </div>
@@ -265,7 +265,7 @@ const Cart = () => {
             <div className="flex items-center basis-[40%] gap-2">
               <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
-                <img src={product1} alt="product-1" className="w-full h-full object-cover" />
+                <img src={product1} loading='lazy' alt="product-1" className="w-full h-full object-cover" />
               </div>
               <p className="text-[#1B1818] font-medium text-sm">Dior and Stone Island T-Shirt, Oversized Fit</p>
             </div>
@@ -295,7 +295,7 @@ const Cart = () => {
             <div className="flex items-center basis-[40%] gap-2">
               <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
-                <img src={product1} alt="product-1" className="w-full h-full object-cover" />
+                <img src={product1} loading='lazy' alt="product-1" className="w-full h-full object-cover" />
               </div>
               <p className="text-[#1B1818] font-medium text-sm">Dior and Stone Island T-Shirt, Oversized Fit</p>
             </div>
@@ -325,7 +325,7 @@ const Cart = () => {
             <div className="flex items-center basis-[40%] gap-2">
               <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
-                <img src={product1} alt="product-1" className="w-full h-full object-cover" />
+                <img src={product1} loading='lazy' alt="product-1" className="w-full h-full object-cover" />
               </div>
               <p className="text-[#1B1818] font-medium text-sm">Dior and Stone Island T-Shirt, Oversized Fit</p>
             </div>

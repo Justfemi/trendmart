@@ -16,7 +16,7 @@ const Favorite = () => {
       <Header />
       <section className="w-[90%] mx-auto mt-9 mb-12">
         <div className="w-[300px] p-2 text-center mx-auto mt-[75px] mb-[200px]">
-          <img src={wish} alt="wish animation"/>
+          <img src={wish} alt="wish animation" loading="lazy"/>
           <h4 className="text-[#1B1818] font-semibold text-base">No Items in Your Wishlist</h4>
           <p className="font-light text-[#1B1818] text-base">
             Browse our store and add items to your wishlist by clicking the heart icon. 
