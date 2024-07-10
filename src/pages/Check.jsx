@@ -19,11 +19,6 @@ const Check = () => {
     setIsModalOpen(false);
   };
 
-  const handleViewOrder = () => {
-    setIsModalOpen(false);
-    navigate('/cart');
-  }
-
   const handleShopping = () => {
     setIsModalOpen(false);
     navigate('/');
@@ -150,15 +145,15 @@ const Check = () => {
           {/* Last div */}
           <div className='border border-[#e0e0e0] rounded-custom-4'>
             <div className="basis-1/2 text-[#717171] text-sm font-normal p-2">
-              <h3 className="text-[#1b1818] text-base font-medium">Shipping Address</h3>
-              <p>Olakunle Oluremi</p>
-              <p>No 4 madiana close, off Dar-Es-Salam street, wuse 2 Abuja, Nigeria</p>
-              <p className="text-[#1b1818]">Email Address: <span className="text-[#717171]"> olakunle.o@gmail.com </span></p>
-              <p className="text-[#1b1818]">Phone Number: <span className="text-[#717171]"> +234 815 3777 444 </span></p>
+              <h3 className="text-[#1b1818] text-base font-medium mb-2">Shipping Address</h3>
+              <p className='mb-1'>Olakunle Oluremi</p>
+              <p className='mb-1'>No 4 madiana close, off Dar-Es-Salam street, wuse 2 Abuja, Nigeria</p>
+              <p className="text-[#1b1818] mb-1">Email Address: <span className="text-[#717171]"> olakunle.o@gmail.com </span></p>
+              <p className="text-[#1b1818] mb-1">Phone Number: <span className="text-[#717171]"> +234 815 3777 444 </span></p>
             </div>
 
             <div className="basis-1/2 border-t border-[#e0e0e0] p-2">
-              <h3 className="text-[#1b1818] text-base font-medium">Order Notes</h3>
+              <h3 className="text-[#1b1818] text-base font-medium mb-2">Order Notes</h3>
               <p className="text-[#717171] text-sm font-normal">
                 Please ensure that the blue dress is in size M and includes the matching belt as shown in the product image. 
                 I would appreciate if the items could be gift-wrapped with a birthday card included. If possible, deliver before 
@@ -298,11 +293,11 @@ const Check = () => {
 
           <div className=" border border-[#e0e0e0] w-[98%] mx-auto mt-3 rounded-br-custom-10 rounded-bl-custom-10 flex items-center justify-center">
             <div className="basis-1/2 text-[#717171] text-sm font-normal p-2">
-              <h3 className="text-[#1b1818] text-base font-medium">Shipping Address</h3>
-              <p>Olakunle Oluremi</p>
-              <p>No 4 madiana close, off Dar-Es-Salam street, wuse 2 Abuja, Nigeria</p>
-              <p className="text-[#1b1818]">Email Address: <span className="text-[#717171]"> olakunle.o@gmail.com </span></p>
-              <p className="text-[#1b1818]">Phone Number: <span className="text-[#717171]"> +234 815 3777 444 </span></p>
+              <h3 className="text-[#1b1818] text-base font-medium mb-2">Shipping Address</h3>
+              <p className='mb-1'>Olakunle Oluremi</p>
+              <p className='mb-1'>No 4 madiana close, off Dar-Es-Salam street, wuse 2 Abuja, Nigeria</p>
+              <p className="text-[#1b1818] mb-1">Email Address: <span className="text-[#717171]"> olakunle.o@gmail.com </span></p>
+              <p className="text-[#1b1818] mb-1">Phone Number: <span className="text-[#717171]"> +234 815 3777 444 </span></p>
             </div>
 
             <div className="basis-1/2 border-l border-[#e0e0e0] p-2">
@@ -326,7 +321,8 @@ const Check = () => {
         <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
           <div className="relative p-2">
             <img src={success} alt="success animation" />
-            <img src={checkmark} alt="" className='absolute sm:top-1 sm:right-[130px] top-2 right-[110px]'/>
+            <img src={checkmark} alt="" className="inset-x-0 mx-auto w-1/4 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl absolute top-4"/>
+            {/* absolute sm:top-1 sm:right-[130px] top-2 right-[110px] */}
             <div className="mt-[-80px] text-center">
               <h3 className="text-[#1b18181] font-medium text-base">Order Placed Succesfully</h3>
               <p className='text-[#717171] font-normal text-sm'>
@@ -334,7 +330,7 @@ const Check = () => {
               </p>
               <div className='flex flex-col w-full'>
                 <button className="uppercase px-6 py-2.5 bg-[#6A1B9A] mt-3 rounded-custom-50 text-white text-bold"
-                  onClick={handleViewOrder}
+                  onClick={handleCloseModal}
                 >
                   view order details
                 </button>
