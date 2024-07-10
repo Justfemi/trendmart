@@ -36,9 +36,9 @@ const Cart = () => {
     <>
       <Header />
       <section className="flex items-start w-[90%] mx-auto my-[50px] justify-between">
-        <div className="border border-[#e0e0e0] rounded-custom-10 basis-[74%]">
+        <div className="border border-[#e0e0e0] rounded-custom-10 basis-[64%]">
           <div className="flex items-center gap-2 p-4">
-            <h3 className="text-[] font-medium text-base">Shopping cart </h3>
+            <h3 className="text-[#1b1818] font-medium text-base">Shopping cart </h3>
             <div className="bg-[#6a1b9a] text-white rounded-full px-3 py-1">5</div>
           </div>
 
@@ -55,7 +55,7 @@ const Cart = () => {
           <div className="flex w-full items-center justify-between border-b border-[#E0E0E0] p-3">
             <div className="flex items-center basis-[40%] gap-2">
               <MdOutlineDelete className="text-[30px] text-red-600"/>
-              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-5">
+              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
                 <img src={product1} alt="product-1" className="w-full h-full object-cover" />
               </div>
               <p className="text-[#1B1818] font-normal text-sm">Dior and Stone Island T-Shirt, Oversized Fit</p>
@@ -85,7 +85,7 @@ const Cart = () => {
           <div className="flex w-full items-center justify-between border-b border-[#E0E0E0] p-3">
             <div className="flex items-center basis-[40%] gap-2">
               <MdOutlineDelete className="text-[30px] text-red-600"/>
-              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-5">
+              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
                 <img src={product1} alt="product-1" className="w-full h-full object-cover" />
               </div>
               <p className="text-[#1B1818] font-normal text-sm">Dior and Stone Island T-Shirt, Oversized Fit</p>
@@ -115,7 +115,7 @@ const Cart = () => {
           <div className="flex w-full items-center justify-between border-b border-[#E0E0E0] p-3">
             <div className="flex items-center basis-[40%] gap-2">
               <MdOutlineDelete className="text-[30px] text-red-600"/>
-              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-5">
+              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
                 <img src={product1} alt="product-1" className="w-full h-full object-cover" />
               </div>
               <p className="text-[#1B1818] font-normal text-sm">Dior and Stone Island T-Shirt, Oversized Fit</p>
@@ -145,7 +145,7 @@ const Cart = () => {
           <div className="flex w-full items-center justify-between border-b border-[#E0E0E0] p-3">
             <div className="flex items-center basis-[40%] gap-2">
               <MdOutlineDelete className="text-[30px] text-red-600"/>
-              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-5">
+              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
                 <img src={product1} alt="product-1" className="w-full h-full object-cover" />
               </div>
               <p className="text-[#1B1818] font-normal text-sm">Dior and Stone Island T-Shirt, Oversized Fit</p>
@@ -175,7 +175,7 @@ const Cart = () => {
           <div className="flex w-full items-center justify-between border-b border-[#E0E0E0] p-3">
             <div className="flex items-center basis-[40%] gap-2">
               <MdOutlineDelete className="text-[30px] text-red-600"/>
-              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-5">
+              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
                 <img src={product1} alt="product-1" className="w-full h-full object-cover" />
               </div>
               <p className="text-[#1B1818] font-normal text-sm">Dior and Stone Island T-Shirt, Oversized Fit</p>
@@ -203,9 +203,9 @@ const Cart = () => {
           </div>
 
         </div>
-        <div className="basis-[24%]">
+        <div className="basis-[34%]">
           <div className="border border-[#e0e0e0] rounded-custom-10 p-5">
-            <h3>Cart Total</h3>
+            <h3 className="text-[#1b1818] font-medium text-base">Cart Total</h3>
 
             <div className='flex items-center justify-between py-2'>
               <p className="text-[#717171] font-normal text-sm">Sub-total</p>
@@ -249,7 +249,7 @@ const Cart = () => {
 
           <div className="border border-[#e0e0e0] rounded-custom-10 mt-5">
             <div className="border-b border-[#e0e0e0] p-5">
-              <h3>Coupon Code</h3>
+              <h3 className="text-[#1b1818] font-medium text-base">Coupon Code</h3>
             </div>
 
             <div className="p-5">

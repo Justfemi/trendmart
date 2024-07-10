@@ -136,7 +136,7 @@ const Check = () => {
               <h3 className="text-[#1b1818] font-medium text-sm">$61.99</h3>
             </div>
 
-            <div className='flex items-center justify-between p-2'>
+            <div className='flex items-center justify-between p-2 border-t border-[#e0e0e0]'>
               <p>Total</p>
               <h3 className="text-[#6a1b9a] font-medium text-base">$2585.99 USD</h3>
             </div>
@@ -198,7 +198,7 @@ const Check = () => {
 
           <div className="flex w-full items-center justify-between border-b border-[#E0E0E0] p-3">
             <div className="flex items-center basis-[40%] gap-2">
-              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-5">
+              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
                 <img src={product1} alt="product-1" className="w-full h-full object-cover" />
               </div>
               <p className="text-[#1B1818] font-normal text-sm">Dior and Stone Island T-Shirt, Oversized Fit</p>
@@ -217,7 +217,7 @@ const Check = () => {
 
           <div className="flex w-full items-center justify-between border-b border-[#E0E0E0] p-3">
             <div className="flex items-center basis-[40%] gap-2">
-              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-5">
+              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
                 <img src={product1} alt="product-1" className="w-full h-full object-cover" />
               </div>
               <p className="text-[#1B1818] font-normal text-sm">Dior and Stone Island T-Shirt, Oversized Fit</p>
@@ -236,7 +236,7 @@ const Check = () => {
 
           <div className="flex w-full items-center justify-between border-b border-[#E0E0E0] p-3">
             <div className="flex items-center basis-[40%] gap-2">
-              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-5">
+              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
                 <img src={product1} alt="product-1" className="w-full h-full object-cover" />
               </div>
               <p className="text-[#1B1818] font-normal text-sm">Dior and Stone Island T-Shirt, Oversized Fit</p>
@@ -255,7 +255,7 @@ const Check = () => {
 
           <div className="flex w-full items-center justify-between border-b border-[#E0E0E0] p-3">
             <div className="flex items-center basis-[40%] gap-2">
-              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-5">
+              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
                 <img src={product1} alt="product-1" className="w-full h-full object-cover" />
               </div>
               <p className="text-[#1B1818] font-normal text-sm">Dior and Stone Island T-Shirt, Oversized Fit</p>
@@ -274,7 +274,7 @@ const Check = () => {
 
           <div className="flex w-full items-center justify-between border-b border-[#E0E0E0] p-3">
             <div className="flex items-center basis-[40%] gap-2">
-              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-5">
+              <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
                 <img src={product1} alt="product-1" className="w-full h-full object-cover" />
               </div>
               <p className="text-[#1B1818] font-normal text-sm">Dior and Stone Island T-Shirt, Oversized Fit</p>
@@ -322,7 +322,6 @@ const Check = () => {
           <div className="relative p-2">
             <img src={success} alt="success animation" />
             <img src={checkmark} alt="" className="inset-x-0 mx-auto w-1/4 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl absolute top-4"/>
-            {/* absolute sm:top-1 sm:right-[130px] top-2 right-[110px] */}
             <div className="mt-[-80px] text-center">
               <h3 className="text-[#1b18181] font-medium text-base">Order Placed Succesfully</h3>
               <p className='text-[#717171] font-normal text-sm'>
