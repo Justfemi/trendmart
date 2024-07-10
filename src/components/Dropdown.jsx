@@ -18,7 +18,7 @@ const Dropdown = () => {
       <div>
         <button
           onClick={toggleDropdown}
-          className="inline-flex justify-between w-full rounded-custom-3 border border-[#E0E0E0] shadow-sm px-4 py-2.5 bg-white text-sm font-medium text-[#E0E0E0] focus:outline-none"
+          className="inline-flex justify-between w-full rounded-custom-10 border border-[#E0E0E0] shadow-sm px-4 py-2.5 bg-white text-sm font-medium text-[#E0E0E0] focus:outline-none"
         >
           {selectedOption}
           <svg

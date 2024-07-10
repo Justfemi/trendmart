@@ -48,7 +48,7 @@ const SideFilter = ({ isOpen, onClose }) => {
 
   return (
     <div className={`fixed inset-0 flex items-end justify-center transition-transform transform ${isOpen ? 'translate-y-0' : 'translate-y-full'} bg-black bg-opacity-50 z-50`} >
-      <div className="w-full h-[95%] bg-white p-8 rounded-t-lg shadow-lg overflow-y-auto">
+      <div className="w-full h-[95%] bg-white p-8 rounded-t-custom-10 shadow-lg overflow-y-auto">
         <div className="border-b border-[#E4E7E9]">
           <h3 className="uppercase font-normal text-[#1B1818] mb-4 mt-6">filter</h3>
           <button
