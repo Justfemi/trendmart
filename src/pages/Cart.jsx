@@ -44,7 +44,7 @@ const Cart = () => {
 
           <div className="flex flex-col ">
             <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
-              <MdOutlineDelete className="text-[30px] text-red-600"/>
+              <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
                 <img src={product1} alt="first product" className="w-full h-full object-cover"/>
               </div>
@@ -72,7 +72,7 @@ const Cart = () => {
             </div>
 
             <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
-              <MdOutlineDelete className="text-[30px] text-red-600"/>
+              <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
                 <img src={product1} alt="first product" className="w-full h-full object-cover"/>
               </div>
@@ -100,7 +100,7 @@ const Cart = () => {
             </div>
 
             <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
-              <MdOutlineDelete className="text-[30px] text-red-600"/>
+              <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
                 <img src={product1} alt="first product" className="w-full h-full object-cover"/>
               </div>
@@ -128,7 +128,7 @@ const Cart = () => {
             </div>
 
             <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
-              <MdOutlineDelete className="text-[30px] text-red-600"/>
+              <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
                 <img src={product1} alt="first product" className="w-full h-full object-cover"/>
               </div>
@@ -156,7 +156,7 @@ const Cart = () => {
             </div>
 
             <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
-              <MdOutlineDelete className="text-[30px] text-red-600"/>
+              <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
                 <img src={product1} alt="first product" className="w-full h-full object-cover"/>
               </div>
@@ -203,7 +203,7 @@ const Cart = () => {
 
           <div className="flex w-full items-center justify-between border-b border-[#E0E0E0] p-3">
             <div className="flex items-center basis-[40%] gap-2">
-              <MdOutlineDelete className="text-[30px] text-red-600"/>
+              <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
                 <img src={product1} alt="product-1" className="w-full h-full object-cover" />
               </div>
@@ -233,7 +233,7 @@ const Cart = () => {
 
           <div className="flex w-full items-center justify-between border-b border-[#E0E0E0] p-3">
             <div className="flex items-center basis-[40%] gap-2">
-              <MdOutlineDelete className="text-[30px] text-red-600"/>
+              <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
                 <img src={product1} alt="product-1" className="w-full h-full object-cover" />
               </div>
@@ -263,7 +263,7 @@ const Cart = () => {
 
           <div className="flex w-full items-center justify-between border-b border-[#E0E0E0] p-3">
             <div className="flex items-center basis-[40%] gap-2">
-              <MdOutlineDelete className="text-[30px] text-red-600"/>
+              <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
                 <img src={product1} alt="product-1" className="w-full h-full object-cover" />
               </div>
@@ -293,7 +293,7 @@ const Cart = () => {
 
           <div className="flex w-full items-center justify-between border-b border-[#E0E0E0] p-3">
             <div className="flex items-center basis-[40%] gap-2">
-              <MdOutlineDelete className="text-[30px] text-red-600"/>
+              <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
                 <img src={product1} alt="product-1" className="w-full h-full object-cover" />
               </div>
@@ -323,7 +323,7 @@ const Cart = () => {
 
           <div className="flex w-full items-center justify-between border-b border-[#E0E0E0] p-3">
             <div className="flex items-center basis-[40%] gap-2">
-              <MdOutlineDelete className="text-[30px] text-red-600"/>
+              <MdOutlineDelete className="text-[30px] text-red-600 cursor-pointer"/>
               <div className="w-[80px] h-[80px] border border-[#E0E0E0] rounded-custom-6">
                 <img src={product1} alt="product-1" className="w-full h-full object-cover" />
               </div>

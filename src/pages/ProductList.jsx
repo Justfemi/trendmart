@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import RatingStar from "../components/RatingStars";
-// import Dropdown from '../components/Dropdown';
 import hero1 from "../assets/firsthero.svg"
 import { FiSearch } from "react-icons/fi";
 import { IoCartOutline } from "react-icons/io5";
@@ -13,14 +12,18 @@ import right from "../assets/right.svg";
 import Products from '../../data';
 import Sidebar from "../components/Sidebar";
 import menuIcon from "../assets/hamburger.svg";
+import SideFilter from '../components/SideFilter';
 
 const ProductList = () => {
-  const [isNavOpen, setIsNavOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const toggleNav = () => {
-    console.log('clicked');
-    setIsNavOpen(!isNavOpen);
-  }
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <>
@@ -58,7 +61,7 @@ const ProductList = () => {
             </div>
 
             <div className="border cursor-pointer p-2.5 rounded-custom-10 sm:hidden block">
-              <img src={menuIcon} alt="menu-toggle icon" onClick={ toggleNav }/>
+              <img src={menuIcon} alt="menu-toggle icon" onClick={ handleOpenModal }/>
             </div>
           </div>
 
@@ -114,6 +117,8 @@ const ProductList = () => {
             </div>
           </div>
         </div>
+
+        <SideFilter isOpen={isModalOpen} onClose={handleCloseModal}/>
       </section>
       <Footer />
     </>
