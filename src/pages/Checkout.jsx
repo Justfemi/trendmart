@@ -170,7 +170,7 @@ const Checkout = () => {
 
                 <div className="flex py-6 mt-6 sm:justify-end justify-center">
                   <button className="uppercase px-20 py-2.5 bg-[#6A1B9A] hover:bg-transparent hover:text-[#6a1b9a] 
-                      mt-3 rounded-custom-50 text-white text-bold border border-[#6a1b9a]"
+                      mt-3 rounded-custom-50 text-white text-bold border border-[#6a1b9a] w-full"
                       onClick={handleNextPage}
                   >next</button>
                 </div>
@@ -251,7 +251,7 @@ const Checkout = () => {
 
                 <div className="flex py-6 mt-6 sm:justify-end justify-center">
                   <button className="uppercase px-20 py-2.5 bg-[#6A1B9A] hover:bg-transparent hover:text-[#6a1b9a] 
-                      mt-3 rounded-custom-50 text-white text-bold border border-[#6a1b9a]"
+                      mt-3 rounded-custom-50 text-white text-bold border border-[#6a1b9a] w-full"
                       onClick={handleSubmit}
                   >next</button>
                 </div>
