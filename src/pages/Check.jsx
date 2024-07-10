@@ -19,6 +19,11 @@ const Check = () => {
     setIsModalOpen(false);
   };
 
+  const handleViewOrder = () => {
+    setIsModalOpen(false);
+    navigate('/checkout');
+  }
+
   const handleShopping = () => {
     setIsModalOpen(false);
     navigate('/');
@@ -329,7 +334,7 @@ const Check = () => {
               </p>
               <div className='flex flex-col w-full'>
                 <button className="uppercase px-6 py-2.5 bg-[#6A1B9A] mt-3 rounded-custom-50 text-white text-bold"
-                  onClick={handleCloseModal}
+                  onClick={handleViewOrder}
                 >
                   view order details
                 </button>
