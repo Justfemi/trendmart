@@ -31,7 +31,7 @@ const ProductList = () => {
       <section className="max:h-[330px] w-[90%] mx-auto my-[15px]">
         <img src={hero1} alt="first hero img" className="h-full w-full object-cover" />
       </section>
-      <section className="mt-[30px] w-[90%] mx-auto flex gap-3 items-start justify-between pb-4 font-general-sans">
+      <section className="mt-[30px] w-[90%] mx-auto flex gap-3 items-start justify-between pb-4 font-general-sans min-h-screen">
         <div 
           className="top-0 left-0 sm:w-[25%] hidden sm:block"
         >
