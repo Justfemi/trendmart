@@ -13,21 +13,21 @@ import Products from '../../data';
 import Sidebar from "../components/Sidebar";
 import menuIcon from "../assets/hamburger.svg";
 import SideFilter from '../components/SideFilter';
-import Loader from "../components/Loader";
+// import Loader from "../components/Loader";
 
 const ProductList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    const fakeDataFetch = () => {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1000);
-    }
+  // useEffect(() => {
+  //   const fakeDataFetch = () => {
+  //     setTimeout(() => {
+  //       setIsLoading(false);
+  //     }, 1000);
+  //   }
 
-    fakeDataFetch();
-  }, []);
+  //   fakeDataFetch();
+  // }, []);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);

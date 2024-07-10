@@ -150,7 +150,7 @@ const SideFilter = ({ isOpen, onClose }) => {
 
         <div className="border-b border-[#E4E7E9]">
           <h3 className="uppercase font-normal text-[#1B1818] mb-4 mt-6">size</h3>
-          <div className="flex items-center gap-16">
+          <div className="flex items-center gap-32">
             <div>
               <label className="flex items-center mb-3">
                 <input
@@ -270,7 +270,7 @@ const SideFilter = ({ isOpen, onClose }) => {
 
         <div className="border-b border-[#E4E7E9]">
         <h3 className="uppercase font-normal text-[#1B1818] mb-4 mt-6">colour</h3>
-          <div className="flex items-center gap-14">
+          <div className="flex items-center gap-28">
             <div>
               <label className="flex items-center mb-3">
                 <input
@@ -359,7 +359,7 @@ const SideFilter = ({ isOpen, onClose }) => {
 
         <div className="">
         <h3 className="uppercase font-normal text-[#1B1818] mb-4 mt-6">popular brands</h3>
-          <div className="flex items-center xl:gap-14 gap-6">
+          <div className="flex items-center gap-20">
             <div>
               <label className="flex items-center mb-3">
                 <input
