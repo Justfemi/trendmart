@@ -51,7 +51,7 @@ const Check = () => {
               <div className="flex flex-col">
                 <h3 className="text-[#1b1818] font-medium text-sm mb-3">Dior and Stone Island T-Shirt, Oversized Fit</h3>
 
-                <div className="flex items-center gap-32">
+                <div className="flex items-center justify-between">
                   <h3 className="text-[#1b1818] font-medium text-sm">$250</h3>
                   <p className="text-[#717171] font-normal text-sm">3</p>
                 </div>
@@ -66,7 +66,7 @@ const Check = () => {
               <div className="flex flex-col">
                 <h3 className="text-[#1b1818] font-medium text-sm mb-3">Dior and Stone Island T-Shirt, Oversized Fit</h3>
 
-                <div className="flex items-center gap-32">
+                <div className="flex items-center justify-between">
                   <h3 className="text-[#1b1818] font-medium text-sm">$250</h3>
                   <p className="text-[#717171] font-normal text-sm">3</p>
                 </div>
@@ -81,7 +81,7 @@ const Check = () => {
               <div className="flex flex-col">
                 <h3 className="text-[#1b1818] font-medium text-sm mb-3">Dior and Stone Island T-Shirt, Oversized Fit</h3>
 
-                <div className="flex items-center gap-32">
+                <div className="flex items-center justify-between">
                   <h3 className="text-[#1b1818] font-medium text-sm">$250</h3>
                   <p className="text-[#717171] font-normal text-sm">3</p>
                 </div>
@@ -96,7 +96,7 @@ const Check = () => {
               <div className="flex flex-col">
                 <h3 className="text-[#1b1818] font-medium text-sm mb-3">Dior and Stone Island T-Shirt, Oversized Fit</h3>
 
-                <div className="flex items-center gap-32">
+                <div className="flex items-center justify-between">
                   <h3 className="text-[#1b1818] font-medium text-sm">$250</h3>
                   <p className="text-[#717171] font-normal text-sm">3</p>
                 </div>
@@ -111,7 +111,7 @@ const Check = () => {
               <div className="flex flex-col">
                 <h3 className="text-[#1b1818] font-medium text-sm mb-3">Dior and Stone Island T-Shirt, Oversized Fit</h3>
 
-                <div className="flex items-center gap-32">
+                <div className="flex items-center justify-between">
                   <h3 className="text-[#1b1818] font-medium text-sm">$250</h3>
                   <p className="text-[#717171] font-normal text-sm">3</p>
                 </div>
@@ -325,7 +325,7 @@ const Check = () => {
 
         <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
           <div className="relative p-2">
-            <img src={success} alt="success animation" />
+            <img src={success} alt="success animation" loading='lazy' />
             <img src={checkmark} alt="" className="inset-x-0 mx-auto w-1/4 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl absolute top-4"/>
             <div className="mt-[-80px] text-center">
               <h3 className="text-[#1b18181] font-medium text-base">Order Placed Succesfully</h3>
