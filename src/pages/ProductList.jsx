@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import RatingStar from "../components/RatingStars";
@@ -44,9 +44,9 @@ const ProductList = () => {
         <section className="max:h-[330px] w-[90%] mx-auto my-[15px]">
           <img src={hero1} alt="first hero img" className="h-full w-full object-cover" loading="lazy"/>
         </section>
-        <section className="mt-[30px] w-[90%] mx-auto flex gap-3 items-start justify-between pb-4 font-general-sans min-h-screen">
+        <section className="mt-[30px] w-[90%] mx-auto flex gap-3 items-start justify-between pb-4 min-h-screen">
           <div 
-            className="top-0 left-0 sm:w-[25%] hidden sm:block"
+            className="top-0 left-0 sm:min-w-[25%] hidden sm:block"
           >
             <Sidebar />
           </div>
@@ -81,19 +81,19 @@ const ProductList = () => {
                         <img src={product.image} alt={product.title} className="w-full" loading="lazy"/>
                         <div className="absolute sm:flex items-center justify-center gap-2 w-full h-full left-0 top-0 bg-black bg-opacity-30 opacity-0 transition-opacity group-hover:opacity-100 hidden">
                           <div className="w-[40px] h-[40px] bg-[#FFF] text-[#1B1818] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#6A1B9A] hover:text-white">
-                            <MdOutlineFavoriteBorder />
+                            <MdOutlineFavoriteBorder className="text-xl" />
                           </div>
         
                           <div className="w-[40px] h-[40px] bg-[#FFF] text-[#1B1818] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#6A1B9A] hover:text-white">
-                            <IoCartOutline className="text-lg"/>
+                            <IoCartOutline className="text-xl"/>
                           </div>
         
                         </div>
                       </div>
                       <div className="mt-6">
                         <RatingStar rating={product.rating} />
-                        <h4 className="font-normal text-[#1B1B1B] text-sm my-[8px] leading-5">{product.title}</h4>
-                        <p className="text-[#6A1B9A] font-semibold text-sm"><span className="line-through text-[#717171] text-sm font-normal mr-1">{product.oldprice}</span>${product.price}</p>
+                        <h4 className="font-medium text-[#1B1B1B] text-sm my-[8px] leading-5">{product.title}</h4>
+                        <p className="text-[#6A1B9A] font-semibold text-sm"><span className="line-through text-[#717171] text-sm font-medium mr-1">{product.oldprice}</span>${product.price}</p>
                       </div>
                       <div className="flex flex-col sm:hidden">
                         <button className="uppercase px-6 py-2.5 bg-[#6A1B9A] mt-3 rounded-custom-50 text-white text-bold">add to cart</button>
@@ -107,7 +107,7 @@ const ProductList = () => {
             </div>
 
             {/* pagination */}
-            <div className="flex justify-center items-center gap-3 sm:gap-7 pt-8 mb-12 font-general-sans border-t border-[#E0E0E0]">
+            <div className="flex justify-center items-center gap-3 sm:gap-7 pt-8 mb-12 border-t border-[#E0E0E0]">
               <div>
                 <p>Page 1 of 30</p>
               </div>

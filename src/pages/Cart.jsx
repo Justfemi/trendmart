@@ -39,7 +39,7 @@ const Cart = () => {
         <div className="sm:hidden block mx-auto">
           <div className="flex items-center gap-2 p-4">
             <h3 className="text-[#1b1818] font-medium text-base">Shopping cart </h3>
-            <div className="bg-[#6a1b9a] text-white rounded-full px-3 py-1">5</div>
+            <div className="bg-[#6a1b9a] text-white rounded-full px-2 py-1">5</div>
           </div>
 
           <div className="flex flex-col ">
@@ -188,7 +188,7 @@ const Cart = () => {
         <div className="border border-[#e0e0e0] rounded-custom-10 basis-[64%] hidden sm:block">
           <div className="flex items-center gap-2 p-4">
             <h3 className="text-[#1b1818] font-medium text-base">Shopping cart </h3>
-            <div className="bg-[#6a1b9a] text-white rounded-full px-3 py-1">5</div>
+            <div className="bg-[#6a1b9a] text-white rounded-full px-2 py-1">5</div>
           </div>
 
           <div className="w-full py-3 px-6 bg-[#E0E0E0] border border-[#E0E0E0] flex items-center justify-between">
@@ -382,8 +382,8 @@ const Cart = () => {
             </div>
 
             <button
-              className="uppercase flex justify-center items-center gap-3 px-6 py-2.5 bg-[#6A1B9A] mt-3 rounded-custom-50 
-              text-white text-bold w-full hover:text-[#6a1b9a] hover:bg-white hover:border border-[#6a1b9a]" 
+              className="uppercase flex justify-center items-center gap-3 px-6 py-2.5 bg-[#6A1B9A] mt-3 rounded-custom-50 border border-transparent
+              text-white text-bold w-full hover:text-[#6a1b9a] hover:bg-white hover:border-[#6a1b9a]" 
               onClick={handleGoToCheckout}
             >
               proceed to checkout

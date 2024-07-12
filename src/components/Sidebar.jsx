@@ -39,7 +39,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="font-general-sans bg-white z-50">
+    <div className=" bg-white z-50">
       <div className="border-b border-[#E4E7E9]">
         <h3 className="uppercase font-normal text-[#1B1818] mb-4">category</h3>
         <label className="flex items-center mb-3">
@@ -369,6 +369,19 @@ const Sidebar = () => {
             </label>
           </div>
         </div>
+      </div>
+
+      <div className="flex items-center gap-1 lg:gap-5">
+        <button className="uppercase px-6 py-2.5 lg:px-8 bg-white border border-[#6A1B9A] mt-3 rounded-custom-50 text-[#6A1B9A] 
+          text-bold cursor-pointer hover:bg-[#6a1b9a] hover:text-white"
+        >
+          reset
+        </button>
+        <button className="uppercase px-6 py-2.5 lg:px-8 bg-[#6A1B9A] mt-3 border border-transparent rounded-custom-50 text-white 
+          text-bold cursor-pointer hover:bg-white hover:border-[#6a1b9a] hover:text-[#6a1b9a]"
+        >
+          apply
+        </button>
       </div>
     </div>
   )

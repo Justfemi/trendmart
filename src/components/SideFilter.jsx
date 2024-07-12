@@ -358,7 +358,7 @@ const SideFilter = ({ isOpen, onClose }) => {
         </div>
 
         <div className="">
-        <h3 className="uppercase font-normal text-[#1B1818] mb-4 mt-6">popular brands</h3>
+          <h3 className="uppercase font-normal text-[#1B1818] mb-4 mt-6">popular brands</h3>
           <div className="flex items-center gap-20">
             <div>
               <label className="flex items-center mb-3">
@@ -444,6 +444,11 @@ const SideFilter = ({ isOpen, onClose }) => {
               </label>
             </div>
           </div>
+        </div>
+
+        <div className="flex items-center gap-6">
+          <button className="uppercase px-8 py-2.5 bg-white border border-[#6A1B9A] mt-3 rounded-custom-50 text-[#6A1B9A] text-bold ">reset</button>
+          <button className="uppercase px-8 py-2.5 bg-[#6A1B9A] mt-3 rounded-custom-50 text-white text-bold">apply</button>
         </div>
       </div>
     </div>

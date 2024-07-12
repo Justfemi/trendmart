@@ -40,10 +40,10 @@ const Check = () => {
         </div>
 
         <div className='sm:hidden block'>
-          <p className="text-[#717171] uppercase font-normal text-base my-4 mx-6">Order Details</p>
+          <p className="text-[#717171] uppercase font-normal text-base my-4 mx-2">Order Details</p>
 
           <div className="flex flex-col">
-            <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
+            <div className="flex items-center justify-between gap-3 p-2 border-[#e0e0e0] border-t">
               <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
                 <img src={product1} alt="first product" className="w-full h-full object-cover"/>
               </div>
@@ -58,7 +58,7 @@ const Check = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
+            <div className="flex items-center justify-between gap-3 p-2 border-[#e0e0e0] border-t">
               <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
                 <img src={product1} alt="first product" className="w-full h-full object-cover"/>
               </div>
@@ -73,7 +73,7 @@ const Check = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
+            <div className="flex items-center justify-between gap-3 p-2 border-[#e0e0e0] border-t">
               <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
                 <img src={product1} alt="first product" className="w-full h-full object-cover"/>
               </div>
@@ -88,7 +88,7 @@ const Check = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
+            <div className="flex items-center justify-between gap-3 p-2 border-[#e0e0e0] border-t">
               <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
                 <img src={product1} alt="first product" className="w-full h-full object-cover"/>
               </div>
@@ -103,7 +103,7 @@ const Check = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 p-2 border-[#e0e0e0] border-t">
+            <div className="flex items-center justify-between gap-3 p-2 border-[#e0e0e0] border-t">
               <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
                 <img src={product1} alt="first product" className="w-full h-full object-cover"/>
               </div>
@@ -148,7 +148,7 @@ const Check = () => {
           </div>
 
           {/* Last div */}
-          <div className='border border-[#e0e0e0] rounded-custom-4'>
+          <div className='border border-[#e0e0e0] rounded-custom-4 mx-3'>
             <div className="basis-1/2 text-[#717171] text-sm font-normal p-2">
               <h3 className="text-[#1b1818] text-base font-medium mb-2">Shipping Address</h3>
               <p className='mb-1'>Olakunle Oluremi</p>
@@ -333,13 +333,15 @@ const Check = () => {
                 Thank you for shopping with us! Your order is placed successfully and we are thrilled to have you as a customer
               </p>
               <div className='flex flex-col w-full'>
-                <button className="uppercase px-6 py-2.5 bg-[#6A1B9A] mt-3 rounded-custom-50 text-white text-bold"
+                <button className="uppercase px-6 py-2.5 bg-[#6A1B9A] mt-3 rounded-custom-50 text-white text-bold border border-transparent
+                  hover:bg-white hover:border-[#6a1b9a] hover:text-[#6a1b9a]"
                   onClick={handleViewOrder}
                 >
                   view order details
                 </button>
 
-                <button className="uppercase px-6 py-2.5 bg-white border border-[#6A1B9A] mt-3 rounded-custom-50 text-[#6A1B9A] text-bold"
+                <button className="uppercase px-6 py-2.5 bg-white border border-[#6A1B9A] mt-3 rounded-custom-50 text-[#6A1B9A] text-bold
+                  hover:bg-[#6a1b9a] hover:text-white"
                   onClick={handleShopping}
                 >continue shopping</button>
               </div>

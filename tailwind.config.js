@@ -11,7 +11,7 @@ export default {
         'xs-custom': '10px',
       },
       fontFamily: {
-        'general-sans': ['"General Sans"', 'sans-serif'],
+        sans: ['Poppins', 'sans-serif'],
       },
       borderRadius: {
         'custom-3': '3px',

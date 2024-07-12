@@ -15,9 +15,13 @@ const Checkout = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission logic here
     setSubmitted(true);
   };
+
+  // const handlePrevPage = (event) => {
+  //   event.preventDefault();
+  //   setSubmitted(false);
+  // }
 
   const handleNextPage = () => {
     navigate("/check");
@@ -169,8 +173,13 @@ const Checkout = () => {
                 </div>
 
                 <div className="flex py-6 mt-6 sm:justify-end justify-center">
-                  <button className="uppercase px-20 py-2.5 bg-[#6A1B9A] hover:bg-transparent hover:text-[#6a1b9a] 
-                      mt-3 rounded-custom-50 text-white text-bold border border-[#6a1b9a] w-full"
+                  {/* <button className="uppercase px-10 py-2.5 hover:bg-[#6A1B9A] bg-transparent text-[#6a1b9a] 
+                    mt-3 rounded-custom-50 hover:text-white text-bold border border-[#6a1b9a] sm:w-1/3 w-full"
+                    onClick={handlePrevPage}
+                  >previous</button> */}
+
+                  <button className="uppercase px-10 py-2.5 bg-[#6A1B9A] hover:bg-transparent hover:text-[#6a1b9a] 
+                      mt-3 rounded-custom-50 text-white text-bold border border-[#6a1b9a] sm:w-1/3 w-full"
                       onClick={handleNextPage}
                   >next</button>
                 </div>
@@ -251,8 +260,8 @@ const Checkout = () => {
 
                 <div className="flex py-6 mt-6 sm:justify-end justify-center">
                   <button className="uppercase px-20 py-2.5 bg-[#6A1B9A] hover:bg-transparent hover:text-[#6a1b9a] 
-                      mt-3 rounded-custom-50 text-white text-bold border border-[#6a1b9a] w-full"
-                      onClick={handleSubmit}
+                    mt-3 rounded-custom-50 text-white text-bold border border-[#6a1b9a] sm:w-1/4 w-full"
+                    onClick={handleSubmit}
                   >next</button>
                 </div>
               </form>

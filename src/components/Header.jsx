@@ -10,9 +10,10 @@ import whelp from "../assets/whelp.svg";
 import { useState } from "react";
 import headsetIcon from "../assets/headset.svg";
 import settings from "../assets/settings.svg";
-import heartIcon from "../assets/heart.svg";
-import cartIcon from "../assets/cart.svg";
-import userIcon from "../assets/user.svg"
+import { IoCartOutline } from "react-icons/io5";
+import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { FaRegUser } from "react-icons/fa6";
+// import userIcon from "../assets/user.svg"
 import { IoIosArrowDown } from "react-icons/io";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
@@ -40,28 +41,28 @@ const Header = () => {
     navigate("/cart");
   }
   return (
-    <header className="font-general-sans">
+    <header className="">
       <div className="bg-[#1B1818] shadow-inner w-full h-[42px] items-center justify-between px-[65px] hidden md:flex">
         <div className="text-white flex items-center gap-2">
           <p className="font-normal text-sm">Follow us: </p>
-          <FaTwitter />
-          <FaFacebook />
-          <FaPinterestP />
-          <FaInstagram />
+          <FaTwitter className="cursor-pointer text-white hover:text-[#6a1b9a]" />
+          <FaFacebook className="cursor-pointer text-white hover:text-[#6a1b9a]" />
+          <FaPinterestP className="cursor-pointer text-white hover:text-[#6a1b9a]" />
+          <FaInstagram className="cursor-pointer text-white hover:text-[#6a1b9a]" />
         </div>
         {/* middle div */}
         <div className="flex gap-3">
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 cursor-pointer text-white hover:text-[#6a1b9a]">
             <img src={locationIcon} alt="location icon" />
-            <p className="text-white underline text-sm font-normal">Track Order</p>
+            <p className="underline text-sm font-normal">Track Order</p>
           </div>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 cursor-pointer text-white hover:text-[#6a1b9a]">
             <img src={headsetIcon} alt="headset icon" />
-            <p className="text-white underline text-sm font-normal">Customer Support</p>
+            <p className="underline text-sm font-normal">Customer Support</p>
           </div>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 cursor-pointer text-white hover:text-[#6a1b9a]">
             <img src={infoIcon} alt="info icon" />
-            <p className="text-white underline text-sm font-normal">Need Help</p>
+            <p className="underline text-sm font-normal">Need Help</p>
           </div>
         </div>
         {/* third div */}
@@ -78,36 +79,36 @@ const Header = () => {
         </Link>
         <div className="flex items-center gap-3">
           <div 
-            className="w-[40px] h-[40px] bg-[#F5F7FA] rounded-full flex items-center justify-center cursor-pointer"
+            className="w-[40px] h-[40px] bg-[#F5F7FA] rounded-full flex items-center justify-center cursor-pointer group hover:bg-[#6a1b9a]"
             onClick={navigateToFavPage}
           >
-            <img src={heartIcon} alt="heart icon"/>
+            <MdOutlineFavoriteBorder className="text-2xl text-[#6a1b9a] group-hover:text-white"/>
           </div>
 
           <div 
-            className="w-[40px] h-[40px] bg-[#F5F7FA] rounded-full flex items-center justify-center cursor-pointer"
+            className="w-[40px] h-[40px] bg-[#F5F7FA] rounded-full flex items-center justify-center cursor-pointer group hover:bg-[#6a1b9a]"
             onClick={navigateToCartPage}
           >
-            <img src={cartIcon} alt="cart icon" />
+            <IoCartOutline className="text-2xl text-[#6a1b9a] group-hover:text-white" />
           </div>
 
           <div 
-            className="md:flex items-center gap-1 cursor-pointer hidden"
+            className="md:flex items-center gap-1 cursor-pointer hidden group"
             onClick={toggleProfileMenu}
           >
-            <div className="w-[40px] h-[40px] bg-[#F5F7FA] rounded-full flex items-center justify-center">
-              <img src={userIcon} alt="user icon" />
+            <div className="w-[40px] h-[40px] bg-[#F5F7FA] rounded-full flex items-center justify-center group-hover:bg-[#6a1b9a]">
+              <FaRegUser className="text-xl text-[#6a1b9a] group-hover:text-white" />
             </div>
             <p className="text-white text-sm font-normal">Chioma</p>
             <IoIosArrowDown className="text-white"/>
           </div>
 
           <div 
-            className="flex items-center gap-1 cursor-pointer md:hidden"
+            className="flex items-center gap-1 cursor-pointer md:hidden group"
             onClick={toggleProfile}
           >
-            <div className="w-[40px] h-[40px] bg-[#F5F7FA] rounded-full flex items-center justify-center">
-              <img src={userIcon} alt="user icon" />
+            <div className="w-[40px] h-[40px] bg-[#F5F7FA] rounded-full flex items-center justify-center group-hover:bg-[#6a1b9a]">
+              <FaRegUser className="text-xl text-[#6a1b9a] group-hover:text-white" />
             </div>
             <IoIosArrowDown className="text-white"/>
           </div>
