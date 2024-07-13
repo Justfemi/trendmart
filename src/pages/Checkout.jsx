@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import CountryDropdown from "../components/countryDropdown";
 import mastercard from "../assets/mastercard.svg";
 import visacard from "../assets/visacard.svg";
@@ -29,7 +27,6 @@ const Checkout = () => {
 
   return (
     <>
-      <Header />
       <section className="sm:w-[80%] w-[95%] mx-auto border border-[#E0E0E0] rounded-tr-custom-10 rounded-tl-custom-10 my-5">
         {submitted ? (
           <div>
@@ -269,7 +266,6 @@ const Checkout = () => {
           </div>
         )}
       </section>
-      <Footer />
     </>
   )
 }

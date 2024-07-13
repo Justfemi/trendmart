@@ -1,7 +1,5 @@
 // import React from 'react'
 import { useNavigate } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import wish from "../assets/wish.svg";
 
 const Favorite = () => {
@@ -13,7 +11,6 @@ const Favorite = () => {
 
   return (
     <>
-      <Header />
       <section className="w-[90%] mx-auto mt-9 mb-12">
         <div className="w-[300px] p-2 text-center mx-auto mt-[75px] mb-[200px]">
           <img src={wish} alt="wish animation" loading="lazy"/>
@@ -30,7 +27,6 @@ const Favorite = () => {
           </button>
         </div>
       </section>
-      <Footer />
     </>
   )
 }

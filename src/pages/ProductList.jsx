@@ -1,33 +1,69 @@
-import { useState } from 'react';
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { useState, useEffect } from 'react';
 import RatingStar from "../components/RatingStars";
-import hero1 from "../assets/firsthero.svg"
+import Loader from "../components/Loader";
+import hero1 from "../assets/firsthero.svg";
 import { FiSearch } from "react-icons/fi";
-import { IoCartOutline } from "react-icons/io5";
+import { IoCartOutline, IoEyeOutline } from "react-icons/io5";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import Dropdown from '../components/Dropdown';
-import left from "../assets/left.svg";
-import right from "../assets/right.svg";
-import Products from '../../data';
 import Sidebar from "../components/Sidebar";
 import menuIcon from "../assets/hamburger.svg";
 import SideFilter from '../components/SideFilter';
-// import Loader from "../components/Loader";
+import axios from 'axios';
+import { Link } from "react-router-dom";
+import ReactPaginate from 'react-paginate';
+// import PropTypes from "prop-types";
 
 const ProductList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 12;
 
-  // useEffect(() => {
-  //   const fakeDataFetch = () => {
-  //     setTimeout(() => {
-  //       setIsLoading(false);
-  //     }, 1000);
-  //   }
+  useEffect(() => {
+    const fetchTimbuData = async () => {
+      try {
+        const response = await axios.get('/api/products', {
+          params: {
+            organization_id: '6d8e5125311b43868ad269849c63a542',
+            reverse_sort: false,
+            page: 1,
+            size: 30,
+            Appid: '3ECYGFPNKXUVMGB',
+            Apikey: 'f5099809eceb42f1b301bdc054cf685e20240712172421349183'
+          }
+        });
+        const items = response.data.items;
+  
+        const mappedItems = items.map(item => {
+          const { name, id, photos, current_price } = item;
+          const fallBackImage = "https://images.unsplash.com/photo-1604506272685-a999a4d122e7?fm=jpg&w=3000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3VtbWVyJTIwZHJlc3N8ZW58MHx8MHx8fDA%3D";
+          const baseURL = 'https://api.timbu.cloud/images/';
+          const photoUrl = photos?.[0]?.url ? `${baseURL}${photos[0].url}` : fallBackImage;
+          const price = current_price?.[0]?.NGN?.[0] || '666';
+  
+          return {
+            name,
+            photoUrl,
+            price,
+            id,
+          };
+        });
+  
+        setItems(mappedItems);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    };
 
-  //   fakeDataFetch();
-  // }, []);
+    fetchTimbuData();
+  }, []);
+
+  if (error) return <p>Error: {error.message}</p>;
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -37,10 +73,19 @@ const ProductList = () => {
     setIsModalOpen(false);
   };
 
+  // Calculate the current items to display
+  const offset = currentPage * itemsPerPage;
+  const currentItems = items.slice(offset, offset + itemsPerPage);
+  const pageCount = Math.ceil(items.length / itemsPerPage);
+
+  // Handle page click
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+  };
+
   return (
-    // isLoading ? ( <Loader /> ) : (
+    loading ? ( <Loader /> ) : (
       <>
-        <Header />
         <section className="max:h-[330px] w-[90%] mx-auto my-[15px]">
           <img src={hero1} alt="first hero img" className="h-full w-full object-cover" loading="lazy"/>
         </section>
@@ -72,65 +117,90 @@ const ProductList = () => {
               </div>
             </div>
 
-            <div className="w-full grid gap-4 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-4">
-              {
-                Products && Products.map(product => {
-                  return (
-                    <div key={product.id} className="group border border-[#E0E0E0] rounded-custom-10 p-4  hover:shadow-lg">
-                      <div className="relative w-full">
-                        <img src={product.image} alt={product.title} className="w-full" loading="lazy"/>
-                        <div className="absolute sm:flex items-center justify-center gap-2 w-full h-full left-0 top-0 bg-black bg-opacity-30 opacity-0 transition-opacity group-hover:opacity-100 hidden">
-                          <div className="w-[40px] h-[40px] bg-[#FFF] text-[#1B1818] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#6A1B9A] hover:text-white">
-                            <MdOutlineFavoriteBorder className="text-xl" />
-                          </div>
-        
-                          <div className="w-[40px] h-[40px] bg-[#FFF] text-[#1B1818] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#6A1B9A] hover:text-white">
-                            <IoCartOutline className="text-xl"/>
-                          </div>
-        
+            <div className="w-full grid gap-4 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mb-4">
+              {currentItems.map((item, index ) => (
+                <div key={index} className="group border border-[#E0E0E0] rounded-custom-10 p-4 hover:shadow-lg cursor-pointer">
+                  <div className='sm:block hidden'>
+                    <div className="relative w-full">
+                      <div className="w-full h-[250px]">
+                        <img src={item.photoUrl} alt={item.name} className="w-full h-full object-cover" loading="lazy"/>
+                      </div>
+                      <div className="absolute sm:flex items-center justify-center gap-2 w-full h-full left-0 top-0 bg-black bg-opacity-30 opacity-0 transition-opacity group-hover:opacity-100 hidden">
+                        <div className="w-[40px] h-[40px] bg-[#FFF] text-[#1B1818] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#6A1B9A] hover:text-white">
+                          <MdOutlineFavoriteBorder className="text-xl" />
                         </div>
+      
+                        <div className="w-[40px] h-[40px] bg-[#FFF] text-[#1B1818] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#6A1B9A] hover:text-white"
+                          // onClick={() => handleAddToCart(item)}
+                        >
+                          <IoCartOutline className="text-xl" />
+                        </div>
+
+                        <Link to={`/product/${item.id}`} >
+                          <div className="w-[40px] h-[40px] bg-[#FFF] text-[#1B1818] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#6A1B9A] hover:text-white">
+                            <IoEyeOutline className="text-xl"/>
+                          </div>
+                        </Link>
+                      </div>
+                    </div>
+                    <div className="mt-6">
+                      <RatingStar rating={4} />
+                      <h4 className="font-medium text-[#1B1B1B] text-sm my-[8px] leading-5">{item.name}</h4>
+                      <p className="text-[#6A1B9A] font-semibold text-sm">NGN {item.price}</p>
+                    </div>
+                  </div>
+                  <Link to={`/product/${item.id}`} >
+                    <div className='block sm:hidden'>
+                      <div className="w-full h-[250px]">
+                        <img src={item.photoUrl} alt={item.name} className="w-full h-full object-cover" loading="lazy"/>
                       </div>
                       <div className="mt-6">
-                        <RatingStar rating={product.rating} />
-                        <h4 className="font-medium text-[#1B1B1B] text-sm my-[8px] leading-5">{product.title}</h4>
-                        <p className="text-[#6A1B9A] font-semibold text-sm"><span className="line-through text-[#717171] text-sm font-medium mr-1">{product.oldprice}</span>${product.price}</p>
+                        <RatingStar rating={4} />
+                        <h4 className="font-medium text-[#1B1B1B] text-sm my-[8px] leading-5">{item.name}</h4>
+                        <p className="text-[#6A1B9A] font-semibold text-sm">NGN {item.price}</p>
                       </div>
-                      <div className="flex flex-col sm:hidden">
-                        <button className="uppercase px-6 py-2.5 bg-[#6A1B9A] mt-3 rounded-custom-50 text-white text-bold">add to cart</button>
+                      <div className="flex flex-col">
+                        <button 
+                          className="uppercase px-6 py-2.5 bg-[#6A1B9A] mt-3 rounded-custom-50 text-white text-bold"
+                          // onClick={() => handleAddToCart(item)}
+                        >add to cart</button>
 
                         <button className="uppercase px-6 py-2.5 bg-white border border-[#6A1B9A] mt-3 rounded-custom-50 text-[#6A1B9A] text-bold">save</button>
                       </div>
                     </div>
-                  );
-                })
-              }
+                  </Link>
+                </div>
+              ))}
             </div>
 
-            {/* pagination */}
-            <div className="flex justify-center items-center gap-3 sm:gap-7 pt-8 mb-12 border-t border-[#E0E0E0]">
-              <div>
-                <p>Page 1 of 30</p>
-              </div>
-              <div className="flex items-center gap-1">
-                <img src={left} alt="left arrow" className="border border-[#E0E0E0] p-3 rounded-custom-8 cursor-pointer hover:border-[#6A1B9A]" />
-                <p className="bg-[#6A1B9A] text-white px-4 py-2 rounded-custom-8 text-sm font-light cursor-pointer"> 1 </p>
-                <p className="cursor-pointer border border-white hidden sm:block hover:border-[#6A1B9A] rounded-custom-8 px-3 py-1"> 2 </p>
-                <p className="cursor-pointer border border-white hidden lg:block hover:border-[#6A1B9A] rounded-custom-8 px-3 py-1"> 3 </p>
-                <p> ... </p>
-                <p className="cursor-pointer border border-white hidden lg:block hover:border-[#6A1B9A] rounded-custom-8 px-3 py-1"> 28 </p>
-                <p className="cursor-pointer border border-white hidden sm:block hover:border-[#6A1B9A] rounded-custom-8 px-3 py-1"> 29 </p>
-                <p className="cursor-pointer border border-white hidden sm:block hover:border-[#6A1B9A] rounded-custom-8 px-3 py-1"> 30 </p>
-                <img src={right} alt="right arrow" className="border border-[#E0E0E0] p-3 rounded-custom-8 cursor-pointer hover:border-[#6A1B9A]" />
-              </div>
+            <div className="mt-5">
+              <ReactPaginate
+                previousLabel={' < '}
+                nextLabel={' > '}
+                breakLabel={'...'}
+                breakClassName={'break-me'}
+                pageCount={pageCount}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={handlePageClick}
+                containerClassName={'flex justify-center my-4'}
+                pageClassName={'mx-1'}
+                pageLinkClassName={'px-4 py-2 border border-[#e0e0e0] text-[#e0e0e0] rounded-custom-10 hover:bg-[#6a1b9a] hover:text-white'}
+                previousClassName={'mx-1'}
+                previousLinkClassName={'px-4 py-2 border border-[#e0e0e0] text-[#e0e0e0] rounded-custom-10 hover:border-[#6a1b9a]'}
+                nextClassName={'mx-1'}
+                nextLinkClassName={'px-4 py-2 border border-[#e0e0e0] text-[#e0e0e0] rounded-custom-10 hover:border-[#6a1b9a]'}
+                activeClassName={'bg-[#6a1b9a] text-white'}
+              />
             </div>
           </div>
 
-          <SideFilter isOpen={isModalOpen} onClose={handleCloseModal}/>
+          <SideFilter isOpen={isModalOpen} onClose={handleCloseModal} />
         </section>
-        <Footer />
       </>
-    // )
-  )
+    )
+  );
 }
 
-export default ProductList
+
+export default ProductList;

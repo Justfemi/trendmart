@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import product1 from "../assets/product1.svg";
 import success from "../assets/success.svg";
 import checkmark from "../assets/checksuccess.svg";
@@ -31,7 +29,6 @@ const Check = () => {
 
   return (
     <>
-      <Header />
       <section className="sm:w-[80%] w-[95%] mx-auto border border-[#E0E0E0] rounded-tr-custom-10 rounded-tl-custom-10 my-5">
         <div className="py-5 sm:px-6 px-2 border border-b border-[#E0E0E0] flex item-center justify-between">
           <h4 className=" font-medium text-xl">Checkout</h4>
@@ -349,7 +346,6 @@ const Check = () => {
           </div>
         </Modal>
       </section>
-      <Footer />
     </>
   )
 }
