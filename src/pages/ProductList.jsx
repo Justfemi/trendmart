@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import RatingStar from "../components/RatingStars";
 import Loader from "../components/Loader";
 import hero1 from "../assets/firsthero.svg";
@@ -12,10 +12,10 @@ import SideFilter from '../components/SideFilter';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import ReactPaginate from 'react-paginate';
-// import { useCart } from '../context/CartContext';
+import { CartContext } from '../context/CartContext';
 
 const ProductList = () => {
-  // const { dispatch } = useCart();
+  const { addToCart } = useContext(CartContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -23,9 +23,10 @@ const ProductList = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 12;
 
-  // console.log(import.meta.env.VITE_REACT_APP_ORGANIZATION_ID);
-  // console.log(import.meta.env.VITE_REACT_APP_APPID);
-  // console.log(import.meta.env.VITE_REACT_APP_API_KEY);
+  // const handleAddToCart = (item) => {
+  //   addToCart(item);
+  //   alert("added from productlist page");
+  // }
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -76,7 +77,7 @@ const ProductList = () => {
   const pageCount = Math.ceil(items.length / itemsPerPage);
 
   if (loading) return <Loader />;
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <p>Error fetching products, please try again!</p>;
 
   return (
     <>
@@ -117,7 +118,9 @@ const ProductList = () => {
                       <div className="w-[40px] h-[40px] bg-[#FFF] text-[#1B1818] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#6A1B9A] hover:text-white">
                         <MdOutlineFavoriteBorder className="text-xl" />
                       </div>
-                      <div className="w-[40px] h-[40px] bg-[#FFF] text-[#1B1818] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#6A1B9A] hover:text-white">
+                      <div className="w-[40px] h-[40px] bg-[#FFF] text-[#1B1818] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#6A1B9A] hover:text-white"
+                        onClick={() => addToCart(item)}
+                      >
                         <IoCartOutline className="text-xl" />
                       </div>
                       <Link to={`/product/${item.id}`}>
@@ -133,8 +136,8 @@ const ProductList = () => {
                     <p className="text-[#6A1B9A] font-semibold text-sm">NGN {item.price}</p>
                   </div>
                 </div>
-                <Link to={`/product/${item.id}`}>
-                  <div className='block sm:hidden'>
+                <div className='block sm:hidden'>
+                  <Link to={`/product/${item.id}`}>
                     <div className="w-full h-[250px]">
                       <img src={item.photoUrl} alt={item.name} className="w-full h-full object-cover" loading="lazy"/>
                     </div>
@@ -143,19 +146,19 @@ const ProductList = () => {
                       <h4 className="font-medium text-[#1B1B1B] text-sm my-[8px] leading-5">{item.name}</h4>
                       <p className="text-[#6A1B9A] font-semibold text-sm">NGN {item.price}</p>
                     </div>
-                    <div className="flex flex-col">
-                      <button 
-                        className="uppercase px-6 py-2.5 bg-[#6A1B9A] mt-3 rounded-custom-50 text-white text-bold" 
-                        // onClick={}
-                      >
-                        Add to Cart
-                      </button>
-                      <button className="uppercase px-6 py-2.5 bg-white border border-[#6A1B9A] mt-3 rounded-custom-50 text-[#6A1B9A] text-bold">
-                        Save
-                      </button>
-                    </div>
+                  </Link>
+                  <div className="flex flex-col">
+                    <button 
+                      className="uppercase px-6 py-2.5 bg-[#6A1B9A] mt-3 rounded-custom-50 text-white text-bold" 
+                      onClick={() => addToCart(item)}
+                    >
+                      Add to Cart
+                    </button>
+                    <button className="uppercase px-6 py-2.5 bg-white border border-[#6A1B9A] mt-3 rounded-custom-50 text-[#6A1B9A] text-bold">
+                      Save
+                    </button>
                   </div>
-                </Link>
+                </div>
               </div>
             ))}
           </div>

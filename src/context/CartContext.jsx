@@ -1,38 +1,49 @@
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, useState } from 'react';
+import { toast } from 'react-toastify';
 
-const CartContext = createContext();
-
-const cartReducer = (state, action) => {
-  switch (action.type) {
-    case 'ADD_TO_CART':
-      const existingProductIndex = state.findIndex(item => item.id === action.product.id);
-      if (existingProductIndex >= 0) {
-        return state.map((item, index) =>
-          index === existingProductIndex ? { ...item, quantity: item.quantity + 1 } : item
-        );
-      }
-      return [...state, { ...action.product, quantity: 1 }];
-    case 'REMOVE_FROM_CART':
-      return state.filter(item => item.id !== action.productId);
-    case 'UPDATE_QUANTITY':
-      return state.map(item =>
-        item.id === action.productId ? { ...item, quantity: action.quantity } : item
-      );
-    case 'CLEAR_CART':
-      return [];
-    default:
-      return state;
-  }
-};
+export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cart, dispatch] = useReducer(cartReducer, []);
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (product) => {
+    const existingIndex = cart.findIndex((item) => item.id === product.id);
+    if (existingIndex !== -1) {
+      const updatedCart = [...cart];
+      updatedCart[existingIndex].quantity++;
+      setCart(updatedCart);
+      toast.success('Item successfully added to cart!');
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
+      toast.success('Item successfully added to cart!');
+    }
+  };
+
+  const increaseQuantity = (productId) => {
+    const updatedCart = cart.map((item) =>
+      item.id === productId && item.quantity < 10
+        ? { ...item, quantity: item.quantity + 1 }
+        : item
+    );
+    setCart(updatedCart);
+  };
+
+  const decreaseQuantity = (productId) => {
+    const updatedCart = cart.map((item) =>
+      item.id === productId && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item
+    );
+    setCart(updatedCart.filter((item) => item.quantity > 0));
+  };
+
+  const removeFromCart = (productId) => {
+    setCart(cart.filter((item) => item.id !== productId));
+    toast.error('Removed from cart!');
+  };
+
 
   return (
-    <CartContext.Provider value={{ cart, dispatch }}>
+    <CartContext.Provider value={{ cart, addToCart, increaseQuantity, decreaseQuantity, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );
 };
-
-export const useCart = () => useContext(CartContext);

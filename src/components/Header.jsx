@@ -6,7 +6,7 @@ import locationIcon from "../assets/location.svg";
 import wlocation from "../assets/wlocation.svg";
 import wheadset from "../assets/wheadset.svg";
 import whelp from "../assets/whelp.svg";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import headsetIcon from "../assets/headset.svg";
 import settings from "../assets/settings.svg";
 import { IoCartOutline } from "react-icons/io5";
@@ -14,12 +14,14 @@ import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa6";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaFacebook, FaInstagram, FaPinterestP, FaTwitter } from "react-icons/fa";
+import { CartContext } from "../context/CartContext";
 // import PropTypes from "prop-types";
 
 const Header = () => {
   const navigate = useNavigate();
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const { cart } = useContext(CartContext);
 
   const toggleProfile = () => {
     setIsProfileOpen(!isProfileOpen);
@@ -36,6 +38,8 @@ const Header = () => {
   const navigateToCartPage = () => {
     navigate("/cart");
   };
+
+  const uniqueItemsCount = cart.length;
 
   return (
     <header className="">
@@ -89,8 +93,9 @@ const Header = () => {
             onClick={navigateToCartPage}
           >
             <IoCartOutline className="text-2xl text-[#6a1b9a] group-hover:text-white" />
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">{uniqueItemsCount}</span>
             {/* {cart.length > 0 && ( */}
-              {/* <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+              {/* <span >
                 {cart.length}
               </span> */}
             {/* )} */}
