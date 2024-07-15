@@ -1,10 +1,37 @@
 import { useState } from "react";
-import CountryDropdown from "../components/countryDropdown";
+// import CountryDropdown from "../components/countryDropdown";
 import mastercard from "../assets/mastercard.svg";
 import visacard from "../assets/visacard.svg";
 import amazon from "../assets/amazon.svg";
 import paypal from "../assets/paypal.png";
 import { useNavigate } from "react-router-dom";
+import Select from 'react-select';
+import { Country, State, City } from 'country-state-city';
+
+const customStyles = {
+  control: (provided) => ({
+    ...provided,
+    borderColor: '#e0e0e0',
+    borderRadius: '10px',
+    padding: '0.25rem', // equivalent to py-3 px-2
+    width: '100%',
+    ':hover': {
+      borderColor: '#e0e0e0',
+    },
+    boxShadow: 'none', // to remove the default outline
+  }),
+  menu: (provided) => ({
+    ...provided,
+    zIndex: 20,
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    ':hover': {
+      backgroundColor: '#f3f4f6', // Tailwind's hover:bg-gray-100
+    },
+    backgroundColor: state.isSelected ? '#e5e7eb' : 'white', // Tailwind's bg-gray-200 for selected
+  }),
+};
 
 const Checkout = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -16,14 +43,43 @@ const Checkout = () => {
     setSubmitted(true);
   };
 
-  // const handlePrevPage = (event) => {
-  //   event.preventDefault();
-  //   setSubmitted(false);
-  // }
-
   const handleNextPage = () => {
     navigate("/check");
   }
+
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [selectedState, setSelectedState] = useState(null);
+  const [selectedCity, setSelectedCity] = useState(null);
+
+  const countries = Country.getAllCountries().map(country => ({
+    value: country.isoCode,
+    label: country.name
+  }));
+
+  const states = selectedCountry ? State.getStatesOfCountry(selectedCountry.value).map(state => ({
+    value: state.isoCode,
+    label: state.name
+  })) : [];
+
+  const cities = selectedState ? City.getCitiesOfState(selectedCountry.value, selectedState.value).map(city => ({
+    value: city.name,
+    label: city.name
+  })) : [];
+
+  const handleCountryChange = country => {
+    setSelectedCountry(country);
+    setSelectedState(null);
+    setSelectedCity(null);
+  };
+
+  const handleStateChange = state => {
+    setSelectedState(state);
+    setSelectedCity(null);
+  };
+
+  const handleCityChange = city => {
+    setSelectedCity(city);
+  };
 
   return (
     <>
@@ -42,7 +98,7 @@ const Checkout = () => {
                   <div className="rounded-custom-6 border border-[#e0e0e0] p-2 mb-2">
                     <img src={mastercard} alt="mastercard logo" />
                   </div>
-                  <p className="text-xs font-medium mb-2 text-[#1B1818] hidden lg:block">MasterCard</p>
+                  <p className="text-sm font-medium mb-2 text-[#1B1818] hidden lg:block">MasterCard</p>
                   <input
                     type="radio"
                     name="payment"
@@ -55,7 +111,7 @@ const Checkout = () => {
                   <div className="rounded-custom-6 border border-[#e0e0e0] p-2 mb-2">
                     <img src={visacard} alt="visacard logo" />
                   </div>
-                  <p className="text-xs font-medium mb-2 text-[#1B1818] hidden lg:block">VisaCard</p>
+                  <p className="text-sm font-medium mb-2 text-[#1B1818] hidden lg:block">VisaCard</p>
                   <input
                     type="radio"
                     name="payment"
@@ -68,7 +124,7 @@ const Checkout = () => {
                   <div className="rounded-custom-6 border border-[#e0e0e0] p-2 mb-2">
                     <img src={paypal} alt="paypal logo" />
                   </div>
-                  <p className="text-xs font-medium mb-2 text-[#1B1818] hidden lg:block">PayPal</p>
+                  <p className="text-sm font-medium mb-2 text-[#1B1818] hidden lg:block">PayPal</p>
                   <input
                     type="radio"
                     name="payment"
@@ -81,7 +137,7 @@ const Checkout = () => {
                   <div className="rounded-custom-6 border border-[#e0e0e0] p-2 mb-2">
                     <img src={amazon} alt="amazon logo" />
                   </div>
-                  <p className="text-xs font-medium mb-2 text-[#1B1818] hidden lg:block">Amazon Pay</p>
+                  <p className="text-sm font-medium mb-2 text-[#1B1818] hidden lg:block">Amazon Pay</p>
                   <input
                     type="radio"
                     name="payment"
@@ -147,25 +203,25 @@ const Checkout = () => {
               <form>
                 <div className="w-full flex items-center flex-col md:flex-row justify-between mt-2.5">
                   <div className="md:w-[48%] w-full mb-2">
-                    <p className="text-xs font-medium mb-2 text-[#1B1818]">Card Number</p>
-                    <input type="text" placeholder="0000 0000 0000 0000" className="border border-[#e0e0e0] rounded-custom-10 p-2.5 w-full input-outline-purple"/>
+                    <p className="text-sm font-medium mb-2 text-[#1B1818]">Card Number</p>
+                    <input type="text" placeholder="0000 0000 0000 0000" className="border border-[#e0e0e0] rounded-custom-10 py-3 px-2 w-full input-outline-purple"/>
                   </div>
 
                   <div className="md:w-[48%] w-full mb-2">
-                    <p className="text-xs font-medium mb-2 text-[#1B1818]">Name on card</p>
-                    <input type="text" placeholder="Olakunle Oluremi" className="border border-[#e0e0e0] rounded-custom-10 p-2.5 w-full input-outline-purple"/>
+                    <p className="text-sm font-medium mb-2 text-[#1B1818]">Name on card</p>
+                    <input type="text" placeholder="Olakunle Oluremi" className="border border-[#e0e0e0] rounded-custom-10 py-3 px-2 w-full input-outline-purple"/>
                   </div>
                 </div>
 
                 <div className="w-full flex items-center flex-col md:flex-row justify-between mt-2.5">
                   <div className="md:w-[48%] w-full mb-2">
-                    <p className="text-xs font-medium mb-2 text-[#1B1818]">Expiry Date</p>
-                    <input type="text" placeholder="12/2027" className="border border-[#e0e0e0] rounded-custom-10 p-2.5 w-full input-outline-purple"/>
+                    <p className="text-sm font-medium mb-2 text-[#1B1818]">Expiry Date</p>
+                    <input type="text" placeholder="12/2027" className="border border-[#e0e0e0] rounded-custom-10 py-3 px-2 w-full input-outline-purple"/>
                   </div>
 
                   <div className="md:w-[48%] w-full mb-2">
-                    <p className="text-xs font-medium mb-2 text-[#1B1818]">CVV</p>
-                    <input type="text" placeholder="000" className="border border-[#e0e0e0] rounded-custom-10 p-2.5 w-full input-outline-purple"/>
+                    <p className="text-sm font-medium mb-2 text-[#1B1818]">CVV</p>
+                    <input type="text" placeholder="000" className="border border-[#e0e0e0] rounded-custom-10 py-3 px-2 w-full input-outline-purple"/>
                   </div>
                 </div>
 
@@ -193,53 +249,73 @@ const Checkout = () => {
 
             <div className="w-[95%] mx-auto lg:p-6 p-1 my-8">
               <form>
-                <div className="lg:w-1/2 w-full flex-col justify-start">
-                  <p className="text-xs font-medium mb-2 text-[#1B1818]">Country/Region</p>
-                  <CountryDropdown />
+                <div className="md:w-1/2 w-full flex-col justify-start">
+                  <p className="text-sm font-medium mb-2 text-[#1B1818]">Country/Region</p>
+                  <Select
+                    value={selectedCountry}
+                    onChange={handleCountryChange}
+                    options={countries}
+                    placeholder="Select Country"
+                    styles={customStyles}
+                  />
                 </div>
 
-                <p className="text-[#717171] uppercase font-normal text-xs-custom mt-4 mb-2.3">contact information</p>
+                <p className="text-[#717171] uppercase font-normal text-sm my-4 mb-2.3">contact information</p>
 
                 <div className="w-full">
-                  <p className="text-xs font-medium mb-2 text-[#1B1818]">Full Name</p>
-                  <input type="text" placeholder="Enter full name" className="border border-[#e0e0e0] rounded-custom-10 p-2.5 w-full input-outline-purple"/>
+                  <p className="text-sm font-medium mb-2 text-[#1B1818]">Full Name</p>
+                  <input type="text" placeholder="Enter full name" className="border border-[#e0e0e0] rounded-custom-10 py-3 px-2 w-full input-outline-purple"/>
                 </div>
 
                 <div className="w-full flex items-center flex-col md:flex-row justify-between mt-2.5">
                   <div className="md:w-[48%] w-full mb-2">
-                    <p className="text-xs font-medium mb-2 text-[#1B1818]">Email Address</p>
-                    <input type="email" placeholder="Enter email address" className="border border-[#e0e0e0] rounded-custom-10 p-2.5 w-full input-outline-purple"/>
+                    <p className="text-sm font-medium mb-2 text-[#1B1818]">Email Address</p>
+                    <input type="email" placeholder="Enter email address" className="border border-[#e0e0e0] rounded-custom-10 py-3 px-2 w-full input-outline-purple"/>
                   </div>
 
                   <div className="md:w-[48%] w-full mb-2">
-                    <p className="text-xs font-medium mb-2 text-[#1B1818]">Phone Number</p>
-                    <input type="text" placeholder="Enter phone number" className="border border-[#e0e0e0] rounded-custom-10 p-2.5 w-full input-outline-purple"/>
-                  </div>
-                </div>
-
-                <p className="text-[#717171] uppercase font-normal text-xs-custom mt-4 mb-2.3">address</p>
-
-                <div className="w-full flex items-center flex-col md:flex-row justify-between mt-2.5">
-                  <div className="md:w-[48%] w-full mb-2">
-                    <p className="text-xs font-medium mb-2 text-[#1B1818]">Address</p>
-                    <input type="email" placeholder="Enter street details" className="border border-[#e0e0e0] rounded-custom-10 p-2.5 w-full input-outline-purple"/>
-                  </div>
-
-                  <div className="md:w-[48%] w-full mb-2">
-                    <p className="text-xs font-medium mb-2 text-[#1B1818]">State</p>
-                    <input type="text" className="border border-[#e0e0e0] rounded-custom-10 p-2.5 w-full input-outline-purple"/>
+                    <p className="text-sm font-medium mb-2 text-[#1B1818]">Phone Number</p>
+                    <input type="text" placeholder="Enter phone number" className="border border-[#e0e0e0] rounded-custom-10 py-3 px-2 w-full input-outline-purple"/>
                   </div>
                 </div>
 
+                <p className="text-[#717171] uppercase font-normal text-sm my-4">address</p>
+
                 <div className="w-full flex items-center flex-col md:flex-row justify-between mt-2.5">
                   <div className="md:w-[48%] w-full mb-2">
-                    <p className="text-xs font-medium mb-2 text-[#1B1818]">City</p>
-                    <input type="text" placeholder="" className="border border-[#e0e0e0] rounded-custom-10 p-2.5 w-full input-outline-purple"/>
+                    <p className="text-sm font-medium mb-2 text-[#1B1818]">Address</p>
+                    <input type="email" placeholder="Enter street details" className="border border-[#e0e0e0] rounded-custom-10 py-3 px-2 w-full input-outline-purple"/>
                   </div>
 
                   <div className="md:w-[48%] w-full mb-2">
-                    <p className="text-xs font-medium mb-2 text-[#1B1818]">ZIP Code</p>
-                    <input type="text" placeholder="Enter zip code" className="border border-[#e0e0e0] rounded-custom-10 p-2.5 w-full input-outline-purple"/>
+                    <p className="text-sm font-medium mb-2 text-[#1B1818]">State</p>
+                    <Select
+                      value={selectedState}
+                      onChange={handleStateChange}
+                      options={states}
+                      placeholder="Select State"
+                      isDisabled={!selectedCountry}
+                      styles={customStyles}
+                    />
+                  </div>
+                </div>
+
+                <div className="w-full flex items-center flex-col md:flex-row justify-between mt-2.5">
+                  <div className="md:w-[48%] w-full mb-2">
+                    <p className="text-sm font-medium mb-2 text-[#1B1818]">City</p>
+                    <Select
+                      value={selectedCity}
+                      onChange={handleCityChange}
+                      options={cities}
+                      placeholder="Select City"
+                      isDisabled={!selectedState}
+                      styles={customStyles}
+                    />
+                  </div>
+
+                  <div className="md:w-[48%] w-full mb-2">
+                    <p className="text-sm font-medium mb-2 text-[#1B1818]">ZIP Code</p>
+                    <input type="text" placeholder="Enter zip code" className="border border-[#e0e0e0] rounded-custom-10 py-3 px-2 w-full input-outline-purple"/>
                   </div>
                 </div>
 
@@ -248,11 +324,11 @@ const Checkout = () => {
                   <p className="text-[#717171] font-normal text-base">Set as default shipping address</p>
                 </div>
 
-                <p className="text-[#717171] uppercase font-normal text-xs-custom mb-2.3">Additional Information</p>
+                <p className="text-[#717171] uppercase font-normal text-sm my-4">Additional Information</p>
 
                 <div className="w-full">
-                  <p className="text-xs font-medium mb-2 text-[#1B1818]">Additinal Information <span className="text-[#717171]">(Optional)</span></p>
-                  <textarea placeholder="e.g. special notes for delivery, additional phone number" className="border border-[#e0e0e0] rounded-custom-10 p-2.5 w-full resize-none input-outline-purple"/>
+                  <p className="text-sm font-medium mb-2 text-[#1B1818]">Additinal Information <span className="text-[#717171]">(Optional)</span></p>
+                  <textarea placeholder="e.g. special notes for delivery, additional phone number" className="border border-[#e0e0e0] rounded-custom-10 py-3 px-2 w-full resize-none input-outline-purple"/>
                 </div>
 
                 <div className="flex py-6 mt-6 sm:justify-end justify-center">

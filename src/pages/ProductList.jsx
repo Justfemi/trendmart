@@ -36,7 +36,7 @@ const ProductList = () => {
             organization_id: import.meta.env.VITE_REACT_APP_ORGANIZATION_ID,
             reverse_sort: false,
             page: 1,
-            size: 30,
+            size: 34,
             Appid: import.meta.env.VITE_REACT_APP_APPID,
             Apikey: import.meta.env.VITE_REACT_APP_API_KEY
           }

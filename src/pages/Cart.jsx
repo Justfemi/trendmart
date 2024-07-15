@@ -73,7 +73,7 @@ const Cart = () => {
                       </h3>
 
                       <div className="flex items-center justify-between">
-                        <h3 className="text-[#1b1818] font-medium text-sm">$250</h3>
+                        <h3 className="text-[#1b1818] font-medium text-sm">#{item.price}</h3>
                         <div className="flex items-center gap-5">
                           <div
                             className=" border border-[#6a1b9a] rounded-full flex w-6 h-6 items-center text-[#6a1b9a] justify-center cursor-pointer hover:bg-[#6a1b9a] hover:text-white"

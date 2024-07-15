@@ -77,8 +77,8 @@ const ProductDetails = () => {
                 </div>
               </Link>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center border">
-                <div className="sm:w-1/2 w-full aspect-w-16 aspect-h-9">
+              <div className="flex flex-col sm:flex-row items-center justify-center border w-full">
+                <div className="sm:w-1/2 w-full h-full aspect-w-16 aspect-h-9">
                   <img src={product.photoUrl} alt={product.name} className="w-full h-full object-cover" />
                 </div>
                 
