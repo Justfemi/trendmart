@@ -7,6 +7,8 @@ import paypal from "../assets/paypal.png";
 import { useNavigate } from "react-router-dom";
 import Select from 'react-select';
 import { Country, State, City } from 'country-state-city';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 const customStyles = {
   control: (provided) => ({
@@ -43,9 +45,37 @@ const Checkout = () => {
     setSubmitted(true);
   };
 
-  const handleNextPage = () => {
-    navigate("/check");
-  }
+  // const handleNextPage = () => {
+  //   navigate("/check");
+  // }
+
+  const formik = useFormik({
+    initialValues: {
+      cardNumber: '',
+      nameOnCard: '',
+      expiryDate: '',
+      cvv: '',
+      paymentMethod: '',
+    },
+    validationSchema: Yup.object({
+      cardNumber: Yup.string()
+        .matches(/^\d{4} \d{4} \d{4} \d{4}$/, 'Invalid card number, add spaces')
+        .required('Required'),
+      nameOnCard: Yup.string().required('Required'),
+      expiryDate: Yup.string()
+        .matches(/^\d{2}\/\d{4}$/, 'Expiry date is not valid')
+        .required('Required'),
+      cvv: Yup.string()
+        .matches(/^\d{3}$/, 'CVV is not valid')
+        .required('Required'),
+      paymentMethod: Yup.string().required('Please select a payment method'),
+    }),
+    onSubmit: (values) => {
+      console.log('Form data', values);
+      // Handle form submission
+      navigate("/check");
+    },
+  });
 
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [selectedState, setSelectedState] = useState(null);
@@ -101,9 +131,11 @@ const Checkout = () => {
                   <p className="text-sm font-medium mb-2 text-[#1B1818] hidden lg:block">MasterCard</p>
                   <input
                     type="radio"
-                    name="payment"
+                    name="paymentMethod"
                     value="mastercard"
                     className="form-radio text-[#6A1B9A]"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                   />
                 </div>
 
@@ -114,9 +146,11 @@ const Checkout = () => {
                   <p className="text-sm font-medium mb-2 text-[#1B1818] hidden lg:block">VisaCard</p>
                   <input
                     type="radio"
-                    name="payment"
+                    name="paymentMethod"
                     value="mastercard"
                     className="form-radio text-[#6A1B9A]"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                   />
                 </div>
 
@@ -127,9 +161,11 @@ const Checkout = () => {
                   <p className="text-sm font-medium mb-2 text-[#1B1818] hidden lg:block">PayPal</p>
                   <input
                     type="radio"
-                    name="payment"
+                    name="paymentMethod"
                     value="mastercard"
                     className="form-radio text-[#6A1B9A]"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                   />
                 </div>
 
@@ -140,9 +176,11 @@ const Checkout = () => {
                   <p className="text-sm font-medium mb-2 text-[#1B1818] hidden lg:block">Amazon Pay</p>
                   <input
                     type="radio"
-                    name="payment"
+                    name="paymentMethod"
                     value="mastercard"
                     className="form-radio text-[#6A1B9A]"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                   />
                 </div>
               </div>
@@ -155,9 +193,11 @@ const Checkout = () => {
                     </div>
                     <input
                       type="radio"
-                      name="payment"
+                      name="paymentMethod"
                       value="mastercard"
                       className="form-radio text-[#6A1B9A]"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                     />
                   </div>
 
@@ -167,9 +207,11 @@ const Checkout = () => {
                     </div>
                     <input
                       type="radio"
-                      name="payment"
+                      name="paymentMethod"
                       value="mastercard"
                       className="form-radio text-[#6A1B9A]"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                     />
                   </div>
                 </div>
@@ -181,9 +223,11 @@ const Checkout = () => {
                     </div>
                     <input
                       type="radio"
-                      name="payment"
+                      name="paymentMethod"
                       value="mastercard"
                       className="form-radio text-[#6A1B9A]"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                     />
                   </div>
 
@@ -193,35 +237,84 @@ const Checkout = () => {
                     </div>
                     <input
                       type="radio"
-                      name="payment"
+                      name="paymentMethod"
                       value="mastercard"
                       className="form-radio text-[#6A1B9A]"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                     />
                   </div>
                 </div>
               </div>
-              <form>
+              {formik.touched.paymentMethod && formik.errors.paymentMethod ? (
+                <div className="text-red-500 text-sm">{formik.errors.paymentMethod}</div>
+              ) : null}
+              <form onSubmit={formik.handleSubmit}>
                 <div className="w-full flex items-center flex-col md:flex-row justify-between mt-2.5">
                   <div className="md:w-[48%] w-full mb-2">
                     <p className="text-sm font-medium mb-2 text-[#1B1818]">Card Number</p>
-                    <input type="text" placeholder="0000 0000 0000 0000" className="border border-[#e0e0e0] rounded-custom-10 py-3 px-2 w-full input-outline-purple"/>
+                    <input 
+                      type="text" 
+                      name="cardNumber"
+                      placeholder="0000 0000 0000 0000" 
+                      className="border border-[#e0e0e0] rounded-custom-10 py-3 px-2 w-full input-outline-purple"
+                      value={formik.values.cardNumber}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                    />
+                    {formik.touched.cardNumber && formik.errors.cardNumber ? (
+                      <div className="text-red-500 text-sm">{formik.errors.cardNumber}</div>
+                    ) : null}
                   </div>
 
                   <div className="md:w-[48%] w-full mb-2">
                     <p className="text-sm font-medium mb-2 text-[#1B1818]">Name on card</p>
-                    <input type="text" placeholder="Olakunle Oluremi" className="border border-[#e0e0e0] rounded-custom-10 py-3 px-2 w-full input-outline-purple"/>
+                    <input 
+                      type="text" 
+                      name="nameOnCard"
+                      placeholder="Olakunle Oluremi" 
+                      value={formik.values.nameOnCard}
+                      className="border border-[#e0e0e0] rounded-custom-10 py-3 px-2 w-full input-outline-purple"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                    />
+                    {formik.touched.nameOnCard && formik.errors.nameOnCard ? (
+                      <div className="text-red-500 text-sm">{formik.errors.nameOnCard}</div>
+                    ) : null}
                   </div>
                 </div>
 
                 <div className="w-full flex items-center flex-col md:flex-row justify-between mt-2.5">
                   <div className="md:w-[48%] w-full mb-2">
                     <p className="text-sm font-medium mb-2 text-[#1B1818]">Expiry Date</p>
-                    <input type="text" placeholder="12/2027" className="border border-[#e0e0e0] rounded-custom-10 py-3 px-2 w-full input-outline-purple"/>
+                    <input 
+                      type="text" 
+                      placeholder="12/2027" 
+                      name="expiryDate"
+                      className="border border-[#e0e0e0] rounded-custom-10 py-3 px-2 w-full input-outline-purple"
+                      value={formik.values.expiryDate}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                    />
+                    {formik.touched.expiryDate && formik.errors.expiryDate ? (
+                      <div className="text-red-500 text-sm">{formik.errors.expiryDate}</div>
+                    ) : null}
                   </div>
 
                   <div className="md:w-[48%] w-full mb-2">
                     <p className="text-sm font-medium mb-2 text-[#1B1818]">CVV</p>
-                    <input type="text" placeholder="000" className="border border-[#e0e0e0] rounded-custom-10 py-3 px-2 w-full input-outline-purple"/>
+                    <input 
+                      type="text"
+                      name="cvv"
+                      placeholder="000" 
+                      className="border border-[#e0e0e0] rounded-custom-10 py-3 px-2 w-full input-outline-purple"
+                      value={formik.values.cvv}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                    />
+                    {formik.touched.cvv && formik.errors.cvv ? (
+                      <div className="text-red-500 text-sm">{formik.errors.cvv}</div>
+                    ) : null}
                   </div>
                 </div>
 
@@ -231,10 +324,14 @@ const Checkout = () => {
                     onClick={handlePrevPage}
                   >previous</button> */}
 
-                  <button className="uppercase px-10 py-2.5 bg-[#6A1B9A] hover:bg-transparent hover:text-[#6a1b9a] 
+                  <button
+                    className="uppercase px-10 py-2.5 bg-[#6A1B9A] hover:bg-transparent hover:text-[#6a1b9a] 
                       mt-3 rounded-custom-50 text-white text-bold border border-[#6a1b9a] sm:w-1/3 w-full"
-                      onClick={handleNextPage}
-                  >next</button>
+                    // onClick={handleNextPage}
+                    type="submit"
+                  >
+                    next
+                  </button>
                 </div>
               </form>
             </div>

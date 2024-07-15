@@ -10,7 +10,7 @@ import { Link } from "react-router-dom"
 // import PropTypes from "prop-types";
 
 const Cart = () => {
-  const { cart, increaseQuantity, decreaseQuantity, removeFromCart } = useContext(CartContext);
+  const { cart, increaseQuantity, decreaseQuantity, removeFromCart, clearCart } = useContext(CartContext);
   const navigate = useNavigate();
 
   const handleGoToCheckout = () => {
@@ -31,13 +31,25 @@ const Cart = () => {
     <>
       <section className="flex items-start w-[90%] mx-auto my-[50px] justify-between flex-col sm:flex-row">
         <div className="sm:hidden block mx-auto">
-          <div className="flex items-center gap-2 p-4">
-            <h3 className="text-[#1b1818] font-medium text-base">
-              Shopping cart{" "}
-            </h3>
-            <div className="bg-[#6a1b9a] text-white rounded-full px-2 py-1">
-              {cart.length}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2 p-4">
+              <h3 className="text-[#1b1818] font-medium text-base">
+                Shopping cart{" "}
+              </h3>
+              <div className="bg-[#6a1b9a] text-white rounded-full px-2 py-1">
+                {cart.length}
+              </div>
             </div>
+
+            {cart.length > 0 && (
+              <button
+                className="uppercase flex justify-center items-center gap-3 px-5 py-2 bg-[#6A1B9A] mt-3 rounded-custom-50 border border-transparent
+                  text-white text-bold hover:text-[#6a1b9a] hover:bg-white hover:border-[#6a1b9a]"
+                onClick={clearCart}
+              >
+                Clear Cart
+              </button>
+            )}
           </div>
 
           <div className="flex flex-col ">
@@ -98,13 +110,34 @@ const Cart = () => {
           </div>
         </div>
         <div className="border border-[#e0e0e0] rounded-custom-10 basis-[64%] hidden sm:block">
-          <div className="flex items-center gap-2 p-4">
+          {/* <div className="flex items-center gap-2 p-4">
             <h3 className="text-[#1b1818] font-medium text-base">
               Shopping cart{" "}
             </h3>
             <div className="bg-[#6a1b9a] text-white rounded-full px-2 py-1">
               {cart.length}
             </div>
+          </div> */}
+
+          <div className="flex items-center justify-between p-4">
+            <div className="flex items-center gap-2">
+              <h3 className="text-[#1b1818] font-medium text-base">
+                Shopping cart{" "}
+              </h3>
+              <div className="bg-[#6a1b9a] text-white rounded-full px-2 py-1">
+                {cart.length}
+              </div>
+            </div>
+
+            {cart.length > 0 && (
+              <button
+                className="uppercase flex justify-center items-center gap-3 px-5 py-2 bg-[#6A1B9A] mt-3 rounded-custom-50 border border-transparent
+                  text-white text-bold hover:text-[#6a1b9a] hover:bg-white hover:border-[#6a1b9a]"
+                onClick={clearCart}
+              >
+                Clear Cart
+              </button>
+            )}
           </div>
 
           <div className="w-full py-3 px-6 bg-[#E0E0E0] border border-[#E0E0E0] flex items-center justify-between">

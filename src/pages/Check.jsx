@@ -8,7 +8,7 @@ import { CartContext } from '../context/CartContext';
 const Check = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
-  const { cart } = useContext(CartContext);
+  const { cart, clearCart } = useContext(CartContext);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -16,15 +16,17 @@ const Check = () => {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    clearCart();
   };
 
-  const handleViewOrder = () => {
-    setIsModalOpen(false);
-    navigate('/checkout');
-  }
+  // const handleViewOrder = () => {
+  //   setIsModalOpen(false);
+  //   navigate('/checkout');
+  // }
 
   const handleShopping = () => {
     setIsModalOpen(false);
+    clearCart();
     navigate('/');
   }
 
@@ -235,15 +237,15 @@ const Check = () => {
                 Thank you for shopping with us! Your order is placed successfully and we are thrilled to have you as a customer
               </p>
               <div className='flex flex-col w-full'>
-                <button className="uppercase px-6 py-2.5 bg-[#6A1B9A] mt-3 rounded-custom-50 text-white text-bold border border-transparent
+                {/* <button className="uppercase px-6 py-2.5 bg-[#6A1B9A] mt-3 rounded-custom-50 text-white text-bold border border-transparent
                   hover:bg-white hover:border-[#6a1b9a] hover:text-[#6a1b9a]"
-                  onClick={handleViewOrder}
+                  onClick={handleCloseModal}
                 >
                   view order details
-                </button>
+                </button> */}
 
-                <button className="uppercase px-6 py-2.5 bg-white border border-[#6A1B9A] mt-3 rounded-custom-50 text-[#6A1B9A] text-bold
-                  hover:bg-[#6a1b9a] hover:text-white"
+                <button className="uppercase px-6 py-2.5 bg-[#6A1B9A] mt-3 rounded-custom-50 text-white text-bold border border-transparent
+                  hover:bg-white hover:border-[#6a1b9a] hover:text-[#6a1b9a]"
                   onClick={handleShopping}
                 >continue shopping</button>
               </div>

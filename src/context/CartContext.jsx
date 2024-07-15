@@ -40,9 +40,12 @@ export const CartProvider = ({ children }) => {
     toast.error('Removed from cart!');
   };
 
+  const clearCart = () => {
+    setCart([]);
+  };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, increaseQuantity, decreaseQuantity, removeFromCart }}>
+    <CartContext.Provider value={{ cart, addToCart, increaseQuantity, decreaseQuantity, removeFromCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );
