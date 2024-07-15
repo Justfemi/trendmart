@@ -69,7 +69,7 @@ const ProductDetails = () => {
       <section>
         {product ? (
           <>
-            <div className="sm:w-[80%] w-[90%] sm:px-[60px] px-2 mx-auto my-10">
+            <div className="sm:w-[80%] w-[90%] sm:px-5 px-2 mx-auto my-10">
               <Link to="/">
                 <div className="flex items-center gap-4 justify-start cursor-pointer mb-5">
                   <FaArrowLeft />
@@ -77,9 +77,9 @@ const ProductDetails = () => {
                 </div>
               </Link>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center border w-full">
-                <div className="sm:w-1/2 w-full h-full aspect-w-16 aspect-h-9">
-                  <img src={product.photoUrl} alt={product.name} className="w-full h-full object-cover" />
+              <div className="flex flex-col sm:flex-row items-center justify-center w-full">
+                <div className="sm:w-1/3 w-1/2 h-full aspect-w-6 aspect-h-4">
+                  <img src={product.photoUrl} alt={product.name} className="w-full h-auto object-cover" />
                 </div>
                 
                 <div className="sm:w-1/2 w-full p-4">
@@ -108,15 +108,15 @@ const ProductDetails = () => {
                     </div>
                   </div>
 
-                  <div className='flex items-center sm:flex-row flex-col justify-between mb-3 gap-5'>
+                  <div className='flex items-center lg:flex-row flex-col justify-between mb-3 gap-5'>
                     <button 
-                      className="uppercase px-5 py-2.5 bg-[#6A1B9A] hover:bg-transparent hover:text-[#6a1b9a] mt-3 rounded-custom-50 text-white text-bold border border-[#6a1b9a] sm:w-1/2 w-full"
+                      className="uppercase px-5 py-2.5 bg-[#6A1B9A] hover:bg-transparent hover:text-[#6a1b9a] mt-3 rounded-custom-50 text-white text-bold border border-[#6a1b9a] lg:w-1/2 w-full"
                       onClick={() => addToCart({ ...product, quantity, price: product.current_price })}
                     >
                       Add to Cart
                     </button>
 
-                    <button className="uppercase px-5 py-2.5 hover:bg-[#6A1B9A] bg-transparent text-[#6a1b9a] mt-3 rounded-custom-50 hover:text-white text-bold border border-[#6a1b9a] sm:w-1/2 w-full">
+                    <button className="uppercase px-5 py-2.5 hover:bg-[#6A1B9A] bg-transparent text-[#6a1b9a] mt-3 rounded-custom-50 hover:text-white text-bold border border-[#6a1b9a] lg:w-1/2 w-full">
                       Save
                     </button>
                   </div>
