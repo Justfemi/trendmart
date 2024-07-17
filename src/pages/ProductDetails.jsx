@@ -7,6 +7,7 @@ import { GiWorld } from "react-icons/gi";
 import { Link, useParams } from 'react-router-dom';
 import Loader from "../components/Loader";
 import { CartContext } from '../context/CartContext';
+import { FavoritesContext } from '../context/FavoritesContext';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -15,6 +16,7 @@ const ProductDetails = () => {
   const [error, setError] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useContext(CartContext);
+  const { addToFavorite } = useContext(FavoritesContext);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -116,7 +118,10 @@ const ProductDetails = () => {
                       Add to Cart
                     </button>
 
-                    <button className="uppercase px-5 py-2.5 hover:bg-[#6A1B9A] bg-transparent text-[#6a1b9a] mt-3 rounded-custom-50 hover:text-white text-bold border border-[#6a1b9a] lg:w-1/2 w-full">
+                    <button 
+                      className="uppercase px-5 py-2.5 hover:bg-[#6A1B9A] bg-transparent text-[#6a1b9a] mt-3 rounded-custom-50 hover:text-white text-bold border border-[#6a1b9a] lg:w-1/2 w-full"
+                      onClick={() => addToFavorite(product)}
+                    >
                       Save
                     </button>
                   </div>

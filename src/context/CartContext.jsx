@@ -15,7 +15,7 @@ export const CartProvider = ({ children }) => {
       toast.success('Item successfully added to cart!');
     } else {
       setCart([...cart, { ...product, quantity: 1 }]);
-      toast.success('Item successfully added to cart!');
+      toast.info('Item exists in cart!');
     }
   };
 
@@ -42,6 +42,7 @@ export const CartProvider = ({ children }) => {
 
   const clearCart = () => {
     setCart([]);
+    toast.info('Cart cleared successfully!')
   };
 
   return (

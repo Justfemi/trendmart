@@ -15,6 +15,7 @@ import { FaRegUser } from "react-icons/fa6";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaFacebook, FaInstagram, FaPinterestP, FaTwitter } from "react-icons/fa";
 import { CartContext } from "../context/CartContext";
+import { FavoritesContext } from "../context/FavoritesContext";
 // import PropTypes from "prop-types";
 
 const Header = () => {
@@ -22,6 +23,7 @@ const Header = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const { cart } = useContext(CartContext);
+  const { favorite } = useContext(FavoritesContext); 
 
   const toggleProfile = () => {
     setIsProfileOpen(!isProfileOpen);
@@ -32,7 +34,7 @@ const Header = () => {
   };
 
   const navigateToFavPage = () => {
-    navigate("/favs");
+    navigate("/wishlist");
   };
 
   const navigateToCartPage = () => {
@@ -40,6 +42,7 @@ const Header = () => {
   };
 
   const uniqueItemsCount = cart.length;
+  const uniqueFavoriteItems = favorite.length;
 
   return (
     <header className="">
@@ -82,10 +85,11 @@ const Header = () => {
         </Link>
         <div className="flex items-center gap-3">
           <div
-            className="w-[40px] h-[40px] bg-[#F5F7FA] rounded-full flex items-center justify-center cursor-pointer group hover:bg-[#6a1b9a]"
+            className="relative w-[40px] h-[40px] bg-[#F5F7FA] rounded-full flex items-center justify-center cursor-pointer group hover:bg-[#6a1b9a]"
             onClick={navigateToFavPage}
           >
             <MdOutlineFavoriteBorder className="text-2xl text-[#6a1b9a] group-hover:text-white" />
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">{uniqueFavoriteItems}</span>
           </div>
 
           <div
@@ -94,11 +98,6 @@ const Header = () => {
           >
             <IoCartOutline className="text-2xl text-[#6a1b9a] group-hover:text-white" />
             <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">{uniqueItemsCount}</span>
-            {/* {cart.length > 0 && ( */}
-              {/* <span >
-                {cart.length}
-              </span> */}
-            {/* )} */}
           </div>
 
           <div

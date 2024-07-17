@@ -13,20 +13,17 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import ReactPaginate from 'react-paginate';
 import { CartContext } from '../context/CartContext';
+import { FavoritesContext } from '../context/FavoritesContext';
 
 const ProductList = () => {
   const { addToCart } = useContext(CartContext);
+  const { addToFavorite } = useContext(FavoritesContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 12;
-
-  // const handleAddToCart = (item) => {
-  //   addToCart(item);
-  //   alert("added from productlist page");
-  // }
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -115,7 +112,9 @@ const ProductList = () => {
                       <img src={item.photoUrl} alt={item.name} className="w-full h-full object-cover" loading="lazy"/>
                     </div>
                     <div className="absolute sm:flex items-center justify-center gap-2 w-full h-full left-0 top-0 bg-black bg-opacity-30 opacity-0 transition-opacity group-hover:opacity-100 hidden">
-                      <div className="w-[40px] h-[40px] bg-[#FFF] text-[#1B1818] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#6A1B9A] hover:text-white">
+                      <div className="w-[40px] h-[40px] bg-[#FFF] text-[#1B1818] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#6A1B9A] hover:text-white"
+                        onClick={() => addToFavorite(item)}
+                      >
                         <MdOutlineFavoriteBorder className="text-xl" />
                       </div>
                       <div className="w-[40px] h-[40px] bg-[#FFF] text-[#1B1818] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#6A1B9A] hover:text-white"

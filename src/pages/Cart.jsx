@@ -73,7 +73,6 @@ const Cart = () => {
                     <div className="w-[80px] h-[80px] border border-[#e0e0e0] rounded-custom-6">
                       <img
                         src={item.photoUrl}
-                        loading="lazy"
                         alt={item.name}
                         className="w-full h-full object-cover"
                       />
